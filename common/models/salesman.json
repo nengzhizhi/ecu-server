@@ -1,0 +1,21 @@
+{
+  "name": "Salesman",
+  "base": "User",
+  "properties": {
+  },
+  "validations": [],
+  "relations": {
+    "clients": {
+      "type": "hasMany",
+      "model": "Client",
+      "foreignKey": "salesmanId"
+    },
+    "orders": {
+      "type": "hasMany",
+      "model": "Order",
+      "foreignKey": "salesmanId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

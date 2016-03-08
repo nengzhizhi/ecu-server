@@ -1,0 +1,16 @@
+{
+  "name": "Engineer",
+  "base": "User",
+  "properties": {
+  },
+  "validations": [],
+  "relations": {
+    "orders": {
+      "type": "hasMany",
+      "model": "Order",
+      "foreignKey": "engineerId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

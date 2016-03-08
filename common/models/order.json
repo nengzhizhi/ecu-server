@@ -1,0 +1,55 @@
+{
+  "name": "Order",
+  "base": "PersistedModel",
+  "properties": {
+    "price": {
+      "type": "number",
+      "required": true
+    },
+    "car_brand": {
+      "type": "number",
+      "required": true
+    },
+    "payment": {
+      "type": "string",
+      "required": true
+    },
+    "appointed_time": {
+      "type": "string",
+      "required": true
+    },
+    "payment_time": {
+      "type": "string",
+      "required": true
+    },
+    "begin_time": {
+      "type": "string",
+      "required": true
+    },
+    "finish_time": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "Client",
+      "foreignKey": "clientId",
+      "required": true
+    },
+    "salesman": {
+      "type": "belongsTo",
+      "model": "Salesman",
+      "foreignKey": "salesmanId"
+    },
+    "executor": {
+      "type": "belongsTo",
+      "model": "Executor",
+      "foreignKey": "executorId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "sources": [
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "Client": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Engineer": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Order": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Salesman": {
+    "dataSource": "mongodb",
+    "public": true
+  }
+}

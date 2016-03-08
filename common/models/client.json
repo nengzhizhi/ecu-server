@@ -1,0 +1,39 @@
+{
+  "name": "Client",
+  "base": "PersistedModel",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "source": {
+      "type": "string",
+      "required": true
+    },
+    "contact": {
+      "type": "string",
+      "required": true
+    },
+    "remark": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "salesman": {
+      "type": "belongsTo",
+      "model": "Salesman",
+      "foreign": "salesmanId",
+      "required": true
+    },
+    "orders": {
+      "type": "hasMany",
+      "model": "Order",
+      "foreign": "clientId",
+      "required": true
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

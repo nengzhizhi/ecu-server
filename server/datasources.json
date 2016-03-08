@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongodb": {
+  	"host": "139.196.54.173",
+  	"port": 27019,
+  	"database": "ecu",
+  	"username": "ecu",
+  	"password": "I1U13k2k!@#$",
+  	"name": "mongodb",
+  	"connector": "mongodb"
+  }
+}
