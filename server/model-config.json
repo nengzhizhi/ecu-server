@@ -33,15 +33,11 @@
     "dataSource": "mongodb",
     "public": true
   },
-  "Engineer": {
-    "dataSource": "mongodb",
-    "public": true
-  },
   "Order": {
     "dataSource": "mongodb",
     "public": true
   },
-  "Salesman": {
+  "Worker": {
     "dataSource": "mongodb",
     "public": true
   }

@@ -6,29 +6,23 @@
       "type": "number",
       "required": true
     },
-    "car_brand": {
-      "type": "number",
-      "required": true
-    },
     "payment": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
+    "created": {
+      "type": "string"
+    },    
     "appointed_time": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "payment_time": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "begin_time": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "finish_time": {
-      "type": "string",
-      "required": true
+      "type": "string"
     }
   },
   "validations": [],
@@ -41,13 +35,13 @@
     },
     "salesman": {
       "type": "belongsTo",
-      "model": "Salesman",
-      "foreignKey": "salesmanId"
+      "model": "Worker",
+      "foreignKey": "workerId"
     },
-    "executor": {
+    "engineer": {
       "type": "belongsTo",
-      "model": "Executor",
-      "foreignKey": "executorId"
+      "model": "Worker",
+      "foreignKey": "workerId"
     }
   },
   "acls": [],

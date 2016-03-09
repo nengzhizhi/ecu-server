@@ -14,6 +14,7 @@
       'lbServices',
       'monospaced.qrcode',
       'com.module.core',
+      'com.module.client',
       'com.module.users',
       'com.module.example',
       'com.module.order'

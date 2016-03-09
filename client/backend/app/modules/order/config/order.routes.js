@@ -28,7 +28,7 @@
 					}
 				})
 				.state('app.order.add', {
-					url: '/add',
+					url: '/add/:clientId',
 					templateUrl: 'modules/order/views/form.html',
 					controllerAs: 'ctrl',
 					controller: function ($state, OrderService, order) {
@@ -38,12 +38,15 @@
 
 						this.submit = function () {
 							OrderService.upsertOrder(this.order).then(function (order) {
-								$state.go('app.order.edit');
+								$state.go('app.order.list');
 							})
 						}
 					},
 					resolve: {
-						order: function () {
+						order: function ($stateParams) {
+							return {
+								clientId: $stateParams.clientId
+							};
 						}
 					}
 				})

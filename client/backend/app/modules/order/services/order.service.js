@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('com.module.order')
-    .service('OrderService', function ($state, Order) {
+    .service('OrderService', function (CoreService, $state, Order) {
       this.getOrder = function (id) {
         return Order.findById({id: id}).$promise;
       }
@@ -32,15 +32,53 @@
 
       this.getFormFields = function(){
     		var form = [
-    			{
-  					key: 'username',
+          {
+            key: 'clientId',
+            type: 'input',
+            templateOptions: {
+              label: '车主编号',
+              required: true,
+              type: 'input'
+            }
+          }, {
+  					key: 'price',
   					type: 'input',
   					templateOptions: {
-              label: '账号',
+              label: '价格',
   						required: true,
   						type: 'input'
   					}
-    			}
+    			}, {
+            key: 'payment',
+            type: 'select',
+            templateOptions: {
+              label: '支付方式',
+              options: [
+                {name: '微信', value: '微信'},
+                {name: '支付宝', value: '支付宝'},
+                {name: '现金', value: '现金'},
+                {name: '其他', value: '其他'}
+              ]
+            }
+          }, {
+            key: 'status',
+            type: 'select',
+            templateOptions: {
+              label: '订单状态',
+              options: [
+                {name: '预约中', value: '预约中'},
+                {name: '刷写完成', value: '刷写完成'}
+              ],
+              required: true,
+            }
+          }, {
+            key: 'remark',
+            type: 'input',
+            templateOptions: {
+              label: '备注',
+              type: 'input'
+            }
+          },
     		]
     		return form;
     	}

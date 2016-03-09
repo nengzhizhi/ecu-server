@@ -3,20 +3,29 @@
   "base": "PersistedModel",
   "properties": {
     "name": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "source": {
       "type": "string",
       "required": true
     },
-    "contact": {
+    "city": {
+      "type": "string"
+    },
+    "car_type": {
+      "type": "string",
+      "required": true
+    },    
+    "contact_type": {
       "type": "string",
       "required": true
     },
-    "remark": {
+    "contact_number": {
       "type": "string",
       "required": true
+    },    
+    "remark": {
+      "type": "string"
     }
   },
   "validations": [],

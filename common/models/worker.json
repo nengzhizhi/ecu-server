@@ -1,19 +1,27 @@
 {
-  "name": "Salesman",
+  "name": "Worker",
   "base": "User",
   "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "workerId": {
+      "type": "string",
+      "required": true
+    }
   },
   "validations": [],
   "relations": {
     "clients": {
       "type": "hasMany",
       "model": "Client",
-      "foreignKey": "salesmanId"
+      "foreignKey": "workerId"
     },
     "orders": {
       "type": "hasMany",
       "model": "Order",
-      "foreignKey": "salesmanId"
+      "foreignKey": "workerId"
     }
   },
   "acls": [],
