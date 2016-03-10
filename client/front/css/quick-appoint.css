@@ -1,0 +1,148 @@
+.reservation-bar{
+	display: none;
+	position: fixed;
+	height: 50px;
+	background: rgba(0,0,0,.6);
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	box-shadow: 0 0 4px 1px rgba(0,0,0,.1);
+	z-index: 9;	
+}
+
+.reservation-bar .form {
+	width: 830px;
+	margin: 0 auto;
+}
+
+.reservation-bar .form .ui-form-item {
+	display: table-cell;
+	height: 50px;
+	vertical-align: middle;
+	padding-right: 10px;
+	position: relative;
+}
+
+.reservation-bar .form, .reservation .form {
+	position: relative;
+}
+
+.reservation-bar .form .input-wrap, .reservation .form .input-wrap {
+	display: inline-block;
+	font-size: 0;
+	border-radius: 2px;
+	background: #fff;
+	position: relative;
+	z-index: 1;
+}
+
+.reservation-bar .form input, .reservation-bar .form select, .reservation-bar .form .selectric-wrapper {
+	width: 210px!important;
+	background: #fff;
+}
+
+.reservation-bar .form input,.reservation .form input {
+	font-size: 14px;
+	padding: 0 10px;
+	height: 30px;
+	border: 1px solid #ededed;
+	outline: 0;
+	border-radius: 2px;
+	background: #f5f5f5
+}
+
+.reservation-bar .form .ui-form-item.ui-form-item-error .ui-form-explain {
+	display: block;
+	animation: showTip000 ease .2s;
+	-webkit-animation: showTip000 ease .2s;
+}
+
+.reservation-bar .form .ui-form-item .ui-form-explain, #reservation .form .ui-form-item .ui-form-explain {
+	background-image: none!important;
+}
+
+.reservation-bar .form .ui-form-explain,.reservation .form .ui-form-explain {
+	display: none;
+	position: absolute;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 10px;
+	background-color: #f24343;
+	font-size: 12px;
+	color: #fff;
+	border-radius: 2px;
+	left: 0;
+	top: -14px;
+	z-index: 2
+}
+/*
+.ui-form-item-error .ui-form-explain {
+	color: #FF5243;
+	padding-left: 17px;
+	background: url(/static/desktop/widget/ui/form/icon-err_d86a878.gif) no-repeat 0 12px;
+}
+
+.ui-form-explain {
+	margin: 0;
+	font-size: 12px;
+	color: #B2B2B2;
+	vertical-align: top;
+}
+*/
+.reservation-bar .ui-button, .reservation .ui-button{
+	display: inline-block;
+	width: 100px;
+	height: 32px;
+	padding: 0;
+	line-height: 32px;
+	background: #ff5b5a;
+	border: 0;
+	border-radius: 2px;
+	color: #fff;
+	transition: all ease .2s;
+	-webkit-transition: all ease .2s;
+}
+
+.ui-button:hover {
+	text-decoration: none;
+	background-image: none;
+}
+
+.reservation-bar .form .ui-button {
+	color: #fff;
+	transition: none;
+	-webkit-transition: none;
+	background: #f75653;
+	background: -moz-linear-gradient(top,#f75653 0,#ec504d 26%,#d3423f 63%,#c73b38 100%);
+	background: -webkit-linear-gradient(top,#f75653 0,#ec504d 26%,#d3423f 63%,#c73b38 100%);
+	background: linear-gradient(to bottom,#f75653 0,#ec504d 26%,#d3423f 63%,#c73b38 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f75653', endColorstr='#c73b38', GradientType=0);
+}
+.ui-button {
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 2px;
+	padding: 0 20px;
+	background-image: none;
+	box-sizing: border-box;
+}
+
+.reservation-bar .form #rightimg, .reservation .form #rightimg {
+	position: absolute;
+	right: -155px;
+	top: 3px;
+}
+
+.reservation-bar .form .img, .reservation .form .img {
+	position: absolute;
+	bottom: 2px;
+	left: -168px;
+}
+
+fieldset, img {
+	border: 0;
+}

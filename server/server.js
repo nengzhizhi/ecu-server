@@ -6,9 +6,11 @@ var bodyParser = require('body-parser');
 var app = module.exports = loopback();
 
 //path for angular client
-app.use(loopback.static(path.resolve(__dirname, '../client/backend/app')));
-//path for bower_components
 app.use(loopback.static(path.resolve(__dirname, '../client/backend/')));
+//path for bower_components
+// app.use(loopback.static(path.resolve(__dirname, '../client/backend/app')));
+
+app.use(loopback.static(path.resolve(__dirname, '../client/front/')));
 
 // to support JSON-encoded bodies
 app.use(bodyParser.json());
@@ -16,6 +18,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+app.set('views', path.join(__dirname, '../client/front/'));
+app.set('view engine', 'html');
+app.engine('html', require('ejs').renderFile);
 
 app.start = function() {
   // start the web server
