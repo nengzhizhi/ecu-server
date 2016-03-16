@@ -34,6 +34,38 @@
 	z-index: 1;
 }
 
+.banner .slider {
+	position: relative;
+	height: 600px;
+	z-index: 1;
+	overflow: visible;
+}
+
+.banner .slider-item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.banner .slogan {
+	width: 100%;
+	height: 600px;
+	display: table;
+	table-layout: fixed;
+	color: #fff;
+}
+
+.banner .slogan .title {
+	width: 732px;
+	height: 356px;
+	margin: 90px auto 0;
+	background: url(../images/slider_main.png) no-repeat center;
+	width: 650px;
+	height: 374px;
+	}
+
 .special {
 	position: relative;
 	margin-top: -20px;
