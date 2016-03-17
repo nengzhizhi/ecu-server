@@ -10,7 +10,7 @@ app.use(loopback.static(path.resolve(__dirname, '../client/backend/')));
 //path for bower_components
 // app.use(loopback.static(path.resolve(__dirname, '../client/backend/app')));
 
-app.use(loopback.static(path.resolve(__dirname, '../client/front/')));
+app.use(loopback.static(path.resolve(__dirname, '../client/static/resource/')));
 
 // to support JSON-encoded bodies
 app.use(bodyParser.json());
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.set('views', path.join(__dirname, '../client/front/'));
+app.set('views', path.join(__dirname, '../client/static/html/'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 
