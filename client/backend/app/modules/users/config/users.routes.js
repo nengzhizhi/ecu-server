@@ -23,33 +23,6 @@
 					abstract: true,
 					url: '/users',
 					templateUrl: 'modules/users/views/main.html'
-				})				
-				.state('app.users.engineers', {
-					url: '/engineers',
-					controllerAs: 'ctrl',
-					templateUrl: 'modules/users/views/engineers.html',
-					controller: function (engineers) {
-						this.engineers = engineers;
-					},
-					resolve: {
-						engineers: function(){
-							return [];
-						}
-					}
-				})
-				.state('app.users.salesmen', {
-					url: '/salesmen',
-					controllerAs: 'ctrl',
-					templateUrl: 'modules/users/views/salesmen.html',
-					controller: function (salesmen) {
-						this.salesmen = salesmen;
-					},
-					resolve: {
-						salesmen: function (UserService) {
-							//return UserService.getSalesmen();
-							return [];
-						}
-					}
 				})
 		})
 })();

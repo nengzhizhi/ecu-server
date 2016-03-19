@@ -1,0 +1,271 @@
+.nav-bar{
+	position: relative;
+	z-index: 19;
+	width: 100%;
+	background-image: -webkit-linear-gradient(bottom,rgba(69,69,69,0.75),rgba(51,51,51,0.75));
+	background-image: linear-gradient(to top,rgba(69,69,69,0.75),rgba(51,51,51,0.75));		
+}
+
+.nav-bar .wrapper{
+	height: 48px;
+}
+
+.nav-bar .logo{
+	margin-top: 5px;
+	width: 100px;
+	height: 48px;
+	float: left;
+	line-height: 48px;
+	vertical-align: middle;
+}
+
+.nav-bar .nav-box{
+	position: relative;
+	height: 48px;
+	z-index: 10;	
+}
+
+.nav-bar .main-nav {
+	float: left;
+	overflow: visible;
+	position: relative;	
+}
+
+.nav-bar .main-nav .item {
+	padding: 0 20px;
+	height: 48px;
+	line-height: 48px;
+	float: left;
+	color: #fff;
+	position: relative;
+	margin-left: -1px;
+	font-size: 14px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.nav-bar .sub-nav{
+	float: right;
+	overflow: visible;
+	position: relative;		
+}
+
+.nav-bar .sub-nav .sub-item {
+	padding: 0 20px;
+	height: 48px;
+	line-height: 48px;
+	float: left;
+	color: #fff;
+	position: relative;
+	margin-left: -1px;
+	font-size: 12px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.wechat{
+	position: relative
+}
+
+.nav-bar .wechat .dropdown:before,.nav-bar .wechat .dropdown:after {
+	content: "";
+	width: 0;
+	height: 0;
+	font-size: 0;
+	border-style: solid
+}
+
+.nav-bar .wechat .dropdown {
+	position: absolute;
+	padding: 5px;
+	border: 1px solid #e4e4e4;
+	border-radius: 2px;
+	box-shadow: 0 1px 2px 1px rgba(0,0,0,.1);
+	background: #fff;
+	top: 95%;
+	left: 0;
+	display: none
+}
+
+.nav-bar .wechat:hover .dropdown {
+	display: block;
+	-webkit-animation: dropdownShow ease .4s;
+	animation: dropdownShow ease .4s
+}
+
+.nav-bar .wechat .dropdown:before,.nav-bar .wechat .dropdown:after {
+	position: absolute;
+	border-width: 0 8px 8px;
+	border-color: transparent transparent #e4e4e4;
+	top: -8px;
+	left: 30px;
+	z-index: 1
+}
+
+.nav-bar .wechat .dropdown:after {
+	z-index: 2;
+	border-bottom-color: #fff;
+	top: -6px
+}
+
+.nav-bar .wechat .dropdown img {
+	width: 161px;
+	height: 161px;
+	vertical-align: bottom
+}
+
+.article-wrapper {
+	height: 240px;
+}
+.article-content {
+	position: relative;
+	z-index: 1;
+}
+
+.article-wrapper a {
+	color: #fff;
+	font-style: normal;
+/*	text-decoration: none;*/
+}
+
+.article-wrapper .article {
+	width: 650px;
+	height: 100px;
+	margin: 200px auto 0;
+	text-align: center;
+}
+
+.article-wrapper .article h2{
+	color: #eee;
+	font-size: 40px;
+	font-size: 2.5rem;
+	line-height: 1.7;
+	font-family: "Gotham A","Gotham B","M Hei PRC W45","M Hei HK W42","M Hei HK W40","HelveticaNeue-Regular","Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;	
+}
+
+.article-wrapper .article p{
+	color: #eee;
+	font-size: 20px;
+	font-size: 1.25rem;
+	line-height: 1.7;	
+}
+
+.article-wrapper .article .btn-group{
+	margin-top: 20px;
+}
+
+.article-wrapper .article .btn-group .btn-primary{
+	text-decoration: none;
+	color: #fff;	
+	background: #c00;
+	color: #fff;
+	font-style: normal;    
+}
+
+.article-wrapper .article .links{
+	margin-top: 20px;
+}
+
+.article-wrapper .article .links a{
+	color: #eee;
+	font-style: normal;
+}
+
+.footer{
+	width: 100%;
+	position: absolute;
+	bottom: 80px;
+	left: 0px;
+	z-index: 50;
+}
+
+.footer-wrapper{
+	height: 30px;
+	padding: 20px;
+}
+
+.footer-wrapper a{
+	color: #eee;
+	font-style: normal;
+}
+
+.footer-wrapper .links{
+
+}
+
+.footer-wrapper .links .link{
+	border-left: 1px solid rgba(204,204,204,0.5);
+	padding-left: 8px;
+	padding-left: 0.5rem;
+	margin-left: 4px;
+	margin-left: 0.25rem;	
+}
+
+.main{
+	max-width: none;
+	margin: 0px;
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.main img{
+	width: 100%;
+	height: 100%;
+}
+
+
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+.modal-alternate .modal-body{
+	color: #222;
+	padding: 20px 30px;
+	padding: 1.25rem 1.875rem;
+}
+
+.modal-alternate .modal-close {
+	background-image: url("../images/icon-close.svg");
+}
+
+.modal-alternate .modal-title {
+	text-align: center;
+	padding-top: 25px;
+	font-size: 25px;
+	font-weight: 400;
+}
+
+.order-form .form-item{
+	margin: 10px auto 30px;
+}
+
+.order-form .form-item input{
+	width:50%;
+}
+
+.order-form .separator {
+	width: 100%;
+	border-top: 1px solid #888;
+	margin: 20px 0;
+	margin: 1.25rem 0;
+	height: 0;
+	clear: both;
+}
+
+.order-form .action-btn {
+	float: right;
+	margin-right: 0;
+}

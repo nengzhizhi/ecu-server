@@ -1,3 +1,3 @@
-module.exports = function(Client){
+module.exports = function(Account){
 	
 }

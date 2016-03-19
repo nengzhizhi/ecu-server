@@ -1,0 +1,69 @@
+.case-box{
+	width: 1280px;
+	padding-bottom: 70px;
+}
+
+.infos {
+	float: left;
+	width: 280px;
+	margin-right: 25px;
+}
+
+.pr {
+	position: relative;
+}
+
+.infos .info:hover {
+	-webkit-box-shadow: 5px 5px 5px #e5e5e5;
+	-moz-box-shadow: 5px 5px 5px #e5e5e5;
+	-ms-box-shadow: 5px 5px 5px #e5e5e5;
+	box-shadow: 5px 5px 5px #e5e5e5;
+	border: 1px solid #e6e6e6;
+}
+
+.infos .info {
+	width: 250px;
+	border: 1px solid #f3f3f3;
+	padding: 0 15px;
+	z-index: 100;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.infos .link-pic {
+	margin-left: -15px;
+	margin-top: -15px;
+}
+
+.infos .info:hover .link-pic img {
+	opacity: .8;
+	filter: alpha(opacity=80);
+}
+
+.infos .i-title{
+	margin-top: 10px;
+	color: #a5a5a5;	
+}
+
+.infos .i-title .car-type{
+	margin-left: 10px;
+	color: #5e5e5e;
+}
+
+.infos .i-title .location{
+	float: right;
+}
+
+.infos .i-descr {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: 1px solid #f6f6f6;
+	line-height: 20px;
+	color: #7b8793;
+	margin-top: 10px;
+}
+
+.infos .i-descr .text {
+	max-height: 40px;
+	overflow: hidden;
+}

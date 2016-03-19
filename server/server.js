@@ -8,7 +8,7 @@ var app = module.exports = loopback();
 //path for angular client
 app.use(loopback.static(path.resolve(__dirname, '../client/backend/')));
 //path for bower_components
-// app.use(loopback.static(path.resolve(__dirname, '../client/backend/app')));
+app.use(loopback.static(path.resolve(__dirname, '../client/backend/app')));
 
 app.use(loopback.static(path.resolve(__dirname, '../client/static/resource/')));
 

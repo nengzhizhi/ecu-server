@@ -3,8 +3,13 @@
 </div>
 
 <formly-form model="ctrl.client" fields="ctrl.formFields" options="ctrl.formOptions">
+
 </formly-form>
 
 <div class="tool_bar border">
 	<a ng-click="ctrl.submit()" class="btn btn_primary">保存</a>
 </div>
+
+<span class="frm_input_box">
+<input type="text" class="frm_input frm_msg_content" date-time view="date" ng-model="dates.today" format="YYYY-MM-DD">
+</span>

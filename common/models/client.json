@@ -2,7 +2,7 @@
   "name": "Client",
   "base": "PersistedModel",
   "properties": {
-    "name": {
+    "contact_time": {
       "type": "string"
     },
     "source": {
@@ -30,12 +30,6 @@
   },
   "validations": [],
   "relations": {
-    "salesman": {
-      "type": "belongsTo",
-      "model": "Salesman",
-      "foreign": "salesmanId",
-      "required": true
-    },
     "orders": {
       "type": "hasMany",
       "model": "Order",

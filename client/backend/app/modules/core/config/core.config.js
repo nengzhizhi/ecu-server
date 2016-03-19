@@ -32,6 +32,14 @@
 				}
 			})
 
+			// formlyConfig.setType({
+			// 	name: 'datePicker',
+			// 	template: '',
+			// 	defaultOptions(options){
+					
+			// 	}
+			// })
+
 			$rootScope.domainUrl = "http://b.meepo.cn";
 		})
 })();

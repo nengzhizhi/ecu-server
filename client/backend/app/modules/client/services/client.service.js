@@ -32,14 +32,7 @@
 
       this.getFormFields = function(){
     		var form = [
-    			{
-  					key: 'name',
-  					type: 'input',
-  					templateOptions: {
-              label: '姓名',
-  						type: 'input'
-  					}
-    			}, {
+          {
             key: 'city',
             type: 'select',
             templateOptions: {
@@ -60,7 +53,8 @@
               options: [
                 {name: '宝马3系', value: '宝马3系', brand: '宝马'},
                 {name: '宝马5系', value: '宝马5系', brand: '宝马'},
-                {name: '高尔夫', value: '高尔夫', brand: '大众'}
+                {name: '高尔夫', value: '高尔夫', brand: '大众'},
+                {name: '朗动', value: '朗动', brand: '现代'}
               ],
               required: true,
               groupProp: 'brand'
@@ -72,9 +66,10 @@
               label: '来源',
               options: [
                 {name: '百度搜索', value: '百度搜索'},
-                {name: '微信群', value: '微信群'},
+                {name: '微信朋友圈', value: '微信朋友圈'},
                 {name: 'QQ群', value: 'QQ群'},
                 {name: '朋友介绍', value: '朋友介绍'},
+                {name: '淘宝二手', value: '淘宝二手'},
                 {name: '其他', value: '其他'}
               ],
               required: true
@@ -87,7 +82,8 @@
               options: [
                 {name: '微信号', value: '微信号'},
                 {name: 'QQ号', value: 'QQ号'},
-                {name: '手机号', value: '手机号'}
+                {name: '手机号', value: '手机号'},
+                {name: '淘宝账号', value: '淘宝账号'}
               ],              
               required: true
             }

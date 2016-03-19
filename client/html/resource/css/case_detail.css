@@ -1,0 +1,94 @@
+.intro{
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 1px 3px 3px #ccc;
+	margin-bottom: 10px;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+
+.intro .image-area{
+	width: 550px;
+	overflow: hidden;
+	float: left;
+	display: inline;	
+}
+
+.intro .image-area .main-image{
+	width: 550px;
+	height: 366px;
+	overflow: hidden;
+	margin-bottom: 15px;
+	position: relative;	
+}
+
+.intro .image-area .main-image img {
+	height: 366px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -274px;
+}
+
+.intro .desc-area{
+	width: 550px;
+	margin-left: 30px;
+	position: relative;
+	float: left;
+	display: inline;
+}
+
+.intro h3 {
+	font-size: 22px;
+	color: #2d2d2d;
+	padding-bottom: 5px;
+}
+
+.intro .desc-area .detail{
+	background-color: #e6e6e6;
+	height: 75px;
+	padding: 20px 0;
+	margin: 10px 0;	
+}
+
+.intro .desc-area div.fl {
+	border-right: 1px solid #ccc;
+	padding-right: 11px;
+	padding-left: 11px;
+	height: 75px;
+	float: left;
+	display: inline;    
+}
+
+.intro .desc-area div.fl.l {
+	border-right: 0;
+}
+
+.intro .desc-area div.fl h3 {
+	color: #505050;
+	font-size: 14px;
+	padding: 20px 0 0 0;
+}
+
+.intro .desc-area h4 {
+	color: #8c8c8c;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.intro .desc-area div.fl .mark {
+	color: #fe5b56;
+	font-weight: bold;
+}
+
+.intro .desc-area .comment{
+	margin-top:20px;
+	color: #8c8c8c;
+	font-size: 14px;	
+}
+
+.body img{
+	max-width: 1122px;
+	margin-top: 20px;
+}
+
