@@ -1,0 +1,41 @@
+{
+  "name": "AutohomeAccount",
+  "base": "PersistedModel",
+  "properties": {
+    "uname": {
+      "type": "string",
+      "required": true
+    },
+    "uid": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },    
+    "car_type": {
+      "type": "string"
+    },
+    "post_number": {
+      "type": "string"
+    },
+    "reply_number": {
+      "type": "string"
+    },        
+    "register_time": {
+      "type": "string"
+    },
+    "last_login": {
+      "type": "string"
+    },    
+    "password": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

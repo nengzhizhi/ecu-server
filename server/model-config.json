@@ -1,6 +1,7 @@
 {
   "_meta": {
     "sources": [
+      "../common/models/autohome",
       "../common/models",
       "./models"
     ],
@@ -37,12 +38,16 @@
     "dataSource": "mongodb",
     "public": true
   },
-  "Worker": {
+  "ForumUrl": {
     "dataSource": "mongodb",
     "public": true
   },
-  "Account": {
+  "PostUrl": {
     "dataSource": "mongodb",
     "public": true
-  } 
+  },
+  "AutohomeAccount": {
+    "dataSource": "mongodb",
+    "public": true
+  }
 }

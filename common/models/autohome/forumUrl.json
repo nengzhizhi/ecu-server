@@ -1,0 +1,17 @@
+{
+  "name": "ForumUrl",
+  "base": "PersistedModel",
+  "properties": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "crawl_time": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
