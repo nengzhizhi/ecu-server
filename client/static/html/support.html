@@ -1,58 +1,305 @@
 <% include template/header.html %>
 	<link rel="stylesheet" href="./css/detail.css">
 	<style type="text/css">
-		.brand {
+		.brand{
 			overflow: hidden;
 			border-bottom: 1px solid #e5e5e5;
+			color: #484848;
 		}
-		.brand dt{
+		.brand .thumbnail{
 			width: 100px;
 			float: left;
-			border-right: 1px solid #e5e5e5;
 			text-align: center;
-			height: 68px;
 		}
-		.brand dd{
-			padding: 20px;
-			text-align: left;
-			font-size: 14px;
+		.brand .models{
+			float: left;
+			border-left: 1px solid #e5e5e5;
+			min-height: 68px;
 		}
-		.brand dd span{
-			margin-left: 10px;
+		.brand .models .row{
+			padding: 10px;
+		}
+		.brand .models .row span{
+			margin-left: 20px;
+		}		
+		.brand .models .dashline{
+			border-bottom: 1px dashed #e5e5e5;
 		}
 	</style>
 		<div class="layout">
 			<div class="body">
 				<div class="title">
-					<h2>支持品牌</h2>
+					<h2>服务品牌（主流品牌都支持，具体详情可咨询客服）</h2>
 				</div>
 				<div class="article">
-
 					<div class="brand">
-						<dl>
-							<dt>
-								<img src="http://7xrv5p.com1.z0.glb.clouddn.com/129302240087557500.jpg">
-								<div>宝马</div>
-							</dt>
-							<dd>
-									<span>宝马1系</span>
-									<span>宝马5系</span>
-									<span>宝马5系</span>
-							</dd>
-						</dl>
+						<div class="thumbnail">
+							<img src="http://7xrv5p.com1.z0.glb.clouddn.com/autohomecar__wKgFXFbCuGGAark9AAAOm8MlQDA537.jpg">
+							<h4>大众</h4>
+						</div>
+						<div class="models">
+							<div class="row">
+								<span>POLO</span>
+								<span>桑塔纳</span>
+								<span>朗行</span>
+								<span>朗逸</span>
+								<span>朗境</span>
+								<span>凌渡</span>
+								<span>帕萨特</span>
+								<span>途观</span>
+								<span>途安</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>捷达</span>
+								<span>宝来</span>
+								<span>高尔夫</span>
+								<span>速腾</span>
+								<span>迈腾</span>
+								<span>大众CC</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>Tiguan</span>
+								<span>途锐</span>
+								<span>甲壳虫</span>
+								<span>辉腾</span>
+								<span>尚酷</span>
+							</div>							
+						</div>
 					</div>
 
 					<div class="brand">
-						<dl>
-							<dt>
-								<img src="http://7xrv5p.com1.z0.glb.clouddn.com/129472203719848750.jpg">
-								<div>奥迪</div>
-							</dt>
-							<dd>
-								<span>奥迪A1</span>
-								<span>奥迪A4</span>
-							</dd>
-						</dl>
+						<div class="thumbnail">
+							<img src="http://7xrv5p.com1.z0.glb.clouddn.com/129302240087557500.jpg">
+							<h4>宝马</h4>
+						</div>
+						<div class="models">
+							<div class="row">
+								<span>宝马1系</span>
+								<span>宝马2系</span>
+								<span>宝马3系</span>
+								<span>宝马5系</span>
+								<span>宝马7系</span>
+								<span>宝马Z4</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>宝马X3</span>
+								<span>宝马X4</span>
+								<span>宝马X5</span>
+								<span>宝马X6</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>宝马M3</span>
+								<span>宝马M4</span>
+								<span>宝马M5</span>
+								<span>宝马M6</span>
+							</div>							
+						</div>
+					</div>
+
+					<div class="brand">
+						<div class="thumbnail">
+							<img src="http://7xrv5p.com1.z0.glb.clouddn.com/129472203719848750.jpg">
+							<h4>奥迪</h4>
+						</div>
+						<div class="models">
+							<div class="row">
+								<span>奥迪A3</span>
+								<span>奥迪A4L</span>
+								<span>奥迪A6L</span>
+								<span>奥迪A7</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>奥迪Q3</span>
+								<span>奥迪Q5</span>
+								<span>奥迪Q7</span>								
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>奥迪TT</span>						
+							</div>							
+						</div>
+					</div>
+
+					<div class="brand">
+						<div class="thumbnail">
+							<img src="http://7xrv5p.com1.z0.glb.clouddn.com/129815225692590942.jpg">
+							<h4>奔驰</h4>
+						</div>
+						<div class="models">
+							<div class="row">
+								<span>奔驰C级</span>
+								<span>奔驰E级</span>
+								<span>奔驰GLA</span>
+								<span>奔驰GLC</span>
+								<span>奔驰GLK级</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>奔驰A级</span>
+								<span>奔驰B级</span>		
+								<span>奔驰CLA级</span>		
+								<span>奔驰C级(进口)</span>		
+								<span>奔驰E级(进口)</span>					
+							</div>									
+						</div>
+					</div>
+
+					<div class="brand">
+						<div class="thumbnail">
+							<img src="http://7xrv5p.com1.z0.glb.clouddn.com/130713021464992840.jpg">
+							<h4>保时捷</h4>
+						</div>
+						<div class="models">
+							<div class="row">
+								<span>Panamera</span>
+								<span>Macan</span>
+								<span>卡宴</span>
+								<span>Boxster</span>
+								<span>Cayman</span>
+								<span>保时捷911</span>
+								<span>保时捷918</span>
+							</div>					
+						</div>
+					</div>
+
+					<div class="brand">
+						<div class="thumbnail">
+							<img src="http://7xrv5p.com1.z0.glb.clouddn.com/130713021829044765.jpg">
+							<h4>别克</h4>
+						</div>
+						<div class="models">
+							<div class="row">
+								<span>凯越</span>
+								<span>威朗</span>
+								<span>英朗</span>
+								<span>君威</span>
+								<span>君越</span>
+								<span>昂科拉</span>
+								<span>昂科威</span>
+								<span>别克GL8</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>昂科雷</span>
+							</div>						
+						</div>
+					</div>
+
+					<div class="brand">
+						<div class="thumbnail">
+							<img src="http://7xrv5p.com1.z0.glb.clouddn.com/130003561762214051.jpg">
+							<h4>福特</h4>
+						</div>
+						<div class="models">
+							<div class="row">
+								<span>嘉年华</span>
+								<span>福克斯</span>
+								<span>福睿斯</span>
+								<span>蒙迪欧</span>
+								<span>致胜</span>
+								<span>金牛座</span>
+								<span>翼搏</span>
+								<span>翼虎</span>
+								<span>锐界</span>
+								<span>麦柯斯</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>嘉年华(进口)</span>
+								<span>福克斯(进口)</span>
+								<span>锐界(进口)</span>
+								<span>福特E350</span>
+								<span>Mustang</span>
+								<span>福特F-150</span>
+							</div>						
+						</div>
+					</div>
+
+
+
+					<div class="brand">
+						<div class="thumbnail">
+							<img src="http://7xrv5p.com1.z0.glb.clouddn.com/129302239927557500.jpg">
+							<h4>本田</h4>
+						</div>
+						<div class="models">
+							<div class="row">
+								<span>杰德</span>
+								<span>思域</span>
+								<span>哥瑞</span>
+								<span>思铂睿</span>
+								<span>本田XR-V</span>
+								<span>本田CR-V</span>
+								<span>艾力绅</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>飞度</span>
+								<span>锋范</span>
+								<span>凌派</span>
+								<span>歌诗图</span>
+								<span>雅阁</span>
+								<span>缤智</span>
+								<span>奥德赛</span>
+								<span>锋范经典</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>飞度(进口)</span>
+								<span>INSIGHT</span>
+								<span>本田CR-Z</span>
+							</div>														
+						</div>
+					</div>
+
+
+					<div class="brand">
+						<div class="thumbnail">
+							<img src="http://7xrv5p.com1.z0.glb.clouddn.com/129302966016093750.jpg">
+							<h4>丰田</h4>
+						</div>
+						<div class="models">
+							<div class="row">
+								<span>YARiS L 致炫</span>
+								<span>雷凌</span>
+								<span>凯美瑞</span>
+								<span>汉兰达</span>
+								<span>逸致</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>威驰</span>
+								<span>花冠</span>
+								<span>卡罗拉</span>
+								<span>普锐斯</span>
+								<span>锐志</span>
+								<span>皇冠</span>
+								<span>一汽丰田RAV4</span>
+								<span>兰德酷路泽</span>
+								<span>普拉多</span>
+								<span>柯斯达</span>
+							</div>
+							<div class="dashline"></div>
+							<div class="row">
+								<span>FJ 酷路泽</span>
+								<span>Fortuner</span>
+								<span>威飒</span>
+								<span>兰德酷路泽(进口)</span>
+								<span>红杉</span>
+								<span>埃尔法</span>
+								<span>普瑞维亚</span>
+								<span>Sienna</span>
+								<span>丰田86</span>
+								<span>杰路驰</span>
+								<span>HIACE</span>
+								<span>坦途</span>
+							</div>														
+						</div>
 					</div>
 				</div>				
 			</div>
