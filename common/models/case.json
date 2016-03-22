@@ -20,18 +20,27 @@
     "photo_url_1": {
       "type": "string"
     },
+    "explanation_1": {
+      "type": "string"
+    },    
     "photo_url_2": {
       "type": "string"
     },
+    "explanation_2": {
+      "type": "string"
+    },       
     "photo_url_3": {
       "type": "string"
     },
+    "explanation_3": {
+      "type": "string"
+    },       
     "photo_url_4": {
       "type": "string"
     },
-    "photo_url_5": {
+    "explanation_4": {
       "type": "string"
-    }            
+    }
   },
   "validations": [],
   "relations": {

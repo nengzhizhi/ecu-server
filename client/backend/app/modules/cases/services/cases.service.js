@@ -56,18 +56,18 @@
               required: true
             }
           }, {
-            key: 'thumbnail_url',
-            type: 'input',
-            templateOptions: {
-              label: '缩略图地址',
-              type: 'input',
-              required: true
-            }
-          }, {
             key: 'description',
             type: 'input',
             templateOptions: {
               label: '简介',
+              type: 'input',
+              required: true
+            }
+          }, {
+            key: 'thumbnail_url',
+            type: 'input',
+            templateOptions: {
+              label: '缩略图地址',
               type: 'input',
               required: true
             }
@@ -79,10 +79,24 @@
               type: 'input'
             }
           },{
+            key: 'explanation_1',
+            type: 'input',
+            templateOptions: {
+              label: '介绍一',
+              type: 'input'
+            }
+          },{
             key: 'photo_url_2',
             type: 'input',
             templateOptions: {
               label: '图片地址二',
+              type: 'input'
+            }
+          },{
+            key: 'explanation_2',
+            type: 'input',
+            templateOptions: {
+              label: '介绍二',
               type: 'input'
             }
           },{
@@ -93,10 +107,24 @@
               type: 'input'
             }
           },{
+            key: 'explanation_3',
+            type: 'input',
+            templateOptions: {
+              label: '介绍三',
+              type: 'input'
+            }
+          },{
             key: 'photo_url_4',
             type: 'input',
             templateOptions: {
               label: '图片地址四',
+              type: 'input'
+            }
+          },{
+            key: 'explanation_4',
+            type: 'input',
+            templateOptions: {
+              label: '介绍四',
               type: 'input'
             }
           },{
@@ -106,7 +134,14 @@
               label: '图片地址五',
               type: 'input'
             }
-          }
+          }{
+            key: 'explanation_5',
+            type: 'input',
+            templateOptions: {
+              label: '介绍五',
+              type: 'input'
+            }
+          },
     		]
     		return form;
     	}
