@@ -38,6 +38,10 @@
     "dataSource": "mongodb",
     "public": true
   },
+  "Case": {
+    "dataSource": "mongodb",
+    "public": true
+  },  
   "ForumUrl": {
     "dataSource": "mongodb",
     "public": true

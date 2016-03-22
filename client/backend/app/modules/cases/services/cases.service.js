@@ -11,8 +11,8 @@
         return Case.find().$promise;
       }
 
-      this.upsertCase = function (case, successCb, cancelCb) {
-				return Case.upsert(case).$promise.then(function () {
+      this.upsertCase = function (item, successCb, cancelCb) {
+				return Case.upsert(item).$promise.then(function () {
 					CoreService.alertSuccess('保存成功！', '', successCb);
 				}, function (err) {
 					CoreService.alertError('保存失败！', err && err.statusText, cancelCb);
@@ -29,9 +29,8 @@
 				})
 			}
 
-
       this.getFormFields = function(){
-    		var form = [
+    		var form = [     
           {
             key: 'date',
             type: 'input',
@@ -45,28 +44,32 @@
             type: 'input',
             templateOptions: {
               label: '所在地',
-              type: 'input'
+              type: 'input',
+              required: true
             }
           }, {
             key: 'car_type',
             type: 'input',
             templateOptions: {
               label: '车辆类型',
-              type: 'input'
+              type: 'input',
+              required: true
             }
           }, {
             key: 'thumbnail_url',
             type: 'input',
             templateOptions: {
               label: '缩略图地址',
-              type: 'input'
+              type: 'input',
+              required: true
             }
           }, {
             key: 'description',
             type: 'input',
             templateOptions: {
               label: '简介',
-              type: 'input'
+              type: 'input',
+              required: true
             }
           }, {
             key: 'photo_url_1',

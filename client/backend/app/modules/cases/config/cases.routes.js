@@ -14,9 +14,10 @@
 					templateUrl: 'modules/cases/views/list.html',
 					controllerAs: 'ctrl',
 					controller: function ($state, cases, CaseService) {
+						console.dir(cases)
 						this.cases = cases;
 						this.deleteCase = function(id){
-							CaseService.deleteClient(id, function(){
+							CaseService.deleteCase(id, function(){
 								$state.go($state.current, {}, {reload: true});
 							})
 						}
@@ -31,19 +32,19 @@
 					url: '/add',
 					templateUrl: 'modules/cases/views/form.html',
 					controllerAs: 'ctrl',
-					controller: function ($state, CaseService, cases) {
-						this.cases = cases;
+					controller: function ($state, CaseService, item) {
+						this.item = item;
 						this.formFields = CaseService.getFormFields();
 						this.formOptions = {};
 
 						this.submit = function () {
-							CaseService.upsertClient(this.cases).then(function (cases) {
+							CaseService.upsertCase(this.item).then(function (item) {
 								$state.go('app.cases.edit');
 							})
 						}
 					},
 					resolve: {
-						cases: function () {
+						item: function () {
 						}
 					}
 				})
@@ -51,20 +52,19 @@
 					url: '/edit/:id',
 					templateUrl: 'modules/cases/views/form.html',
 					controllerAs: 'ctrl',
-					controller: function ($state, case, CaseService) {
-						// this.case = case;
-						// this.formFields = CaseService.getFormFields();
-						// this.formOptions = {};
-						// this.submit = function () {
-						// 	console.log(this.cases);
-						// 	// CaseService.upsertClient(this.client).then(function () {
-						// 	// 	$state.go($state.current, {}, { reload: true });
-						// 	// })
+					controller: function ($state, item, CaseService) {
+						this.item = item;
+						this.formFields = CaseService.getFormFields();
+						this.formOptions = {};
+						this.submit = function () {
+							CaseService.upsertCase(this.item).then(function () {
+								$state.go($state.current, {}, { reload: true });
+							})
 						}
 					},
 					resolve: {
-						case: function ($stateParams, CaseService) {
-							return CaseService.getClient($stateParams.id);
+						item: function ($stateParams, CaseService) {
+							return CaseService.getCase($stateParams.id);
 						}
 					}
 				})
