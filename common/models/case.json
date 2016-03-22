@@ -1,0 +1,41 @@
+{
+  "name": "Case",
+  "base": "PersistedModel",
+  "properties": {
+    "date": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },    
+    "car_type": {
+      "type": "string"
+    },
+    "thumbnail_url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "photo_url_1": {
+      "type": "string"
+    },
+    "photo_url_2": {
+      "type": "string"
+    },
+    "photo_url_3": {
+      "type": "string"
+    },
+    "photo_url_4": {
+      "type": "string"
+    },
+    "photo_url_5": {
+      "type": "string"
+    }            
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [],
+  "methods": {}
+}
