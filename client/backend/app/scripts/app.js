@@ -12,7 +12,7 @@
       'formly',
       'ui.router',
       'lbServices',
-      'datePicker',
+      //'datePicker',
       'monospaced.qrcode',
       'com.module.core',
       'com.module.client',

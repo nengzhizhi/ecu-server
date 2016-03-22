@@ -7,166 +7,30 @@
 			</div>
 
 			<div class="case-box">
+			<% for (var i = 0; i < 4; i ++) { %>
 				<ul class="infos">
+					<% for (var j =  0; j < items.length / 4 + 1; j++){ %>
+					<% if (!!items[j * 4 + i]){ %>
 					<li class="info pr">
-						<a href="#" class="link-pic">
-							<img class="lazyout-1" width="280" src="http://7xrv5p.com1.z0.glb.clouddn.com/539970271614154571.jpg">
+						<a href="/case?id=<%-items[j * 4 + i].id %>" class="link-pic">
+							<img class="lazyout-1" width="280" src="<%-items[j * 4 + i].thumbnail_url %>">
 						</a>
 						<div class="i-title">
-							<p>2016-03-14
-								<span class="car-type">奥迪Q5</span>
-								<span class="location">东莞市</span>
+							<p><%-items[j * 4 + i].date %>
+								<span class="car-type"><%-items[j * 4 + i].car_type %></span>
+								<span class="location"><%-items[j * 4 + i].location %></span>
 							</p>
 						</div>
 						<div class="i-descr">
 							<p class="text">
-								<a target="_blank" href="#" style="color:#5e5e5e">奥迪Q5刷写完成，马力增长70匹，客户高兴~</a>
+								<a target="_blank" href="/case?id=<%-items[j * 4 + i].id %>" style="color:#5e5e5e"><%-items[j * 4 + i].description %></a>
 							</p>
 						</div>
 					</li>
-
-					<li class="info pr">
-						<a href="#" class="link-pic">
-							<img class="lazyout-1" width="280" src="http://7xrv5p.com1.z0.glb.clouddn.com/223845020498970882.jpg">
-						</a>
-						<div class="i-title">
-							<p>2016-03-13
-								<span class="car-type">本田CRV</span>
-								<span class="location">上海市</span>
-							</p>
-						</div>
-						<div class="i-descr">
-							<p class="text">
-								<a target="_blank" href="#" style="color:#5e5e5e">本田肉车CRV。Unichip 外挂调试 完工！</a>
-							</p>
-						</div>
-					</li>
-					<li class="info pr">
-						<a href="#" class="link-pic">
-							<img class="lazyout-1" width="280" src="http://7xrv5p.com1.z0.glb.clouddn.com/442211816914321752.jpg">
-						</a>
-						<div class="i-title">
-							<p>2016-03-13
-								<span class="car-type">宝马X5</span>
-								<span class="location">广东市</span>
-							</p>
-						</div>
-						<div class="i-descr">
-							<p class="text">
-								<a target="_blank" href="#" style="color:#5e5e5e">宝马X5已经完工3.0T刷完超级暴力！410ph。530牛米！提升了将近110匹</a>
-							</p>
-						</div>
-					</li>
+					<% } %>
+					<% } %>
 				</ul>
-
-				<ul class="infos">
-					<li class="info pr">
-						<a href="#" class="link-pic">
-							<img class="lazyout-1" width="280" src="http://7xrv5p.com1.z0.glb.clouddn.com/603548360476025934.jpg">
-						</a>
-						<div class="i-title">
-							<p>2016-03-12
-								<span class="car-type">宝马5系</span>
-								<span class="location">深圳市</span>
-							</p>
-						</div>
-						<div class="i-descr">
-							<p class="text">
-								<a target="_blank" href="#" style="color:#5e5e5e">宝马520刷写ECU 动力升级 2.0T 原车肉，前半脚油门空的，到了那个该爆的点又爆不起来，总之动态太小！我们的dimecu完美解决问题，平顺、马力大！扭矩足，特调184匹--307匹数值自选！另有528 525的调教数据！喜欢低升高，或者狂暴的请咨询</a>
-							</p>
-						</div>
-					</li>
-
-					<li class="info pr">
-						<a href="#" class="link-pic">
-							<img class="lazyout-1" width="280" src="http://7xrv5p.com1.z0.glb.clouddn.com/145011436703718469.jpg">
-						</a>
-						<div class="i-title">
-							<p>2016-03-10
-								<span class="car-type">宝马7系</span>
-								<span class="location">深圳市</span>
-							</p>
-						</div>
-						<div class="i-descr">
-							<p class="text">
-								<a target="_blank" href="#" style="color:#5e5e5e">宝马740ii 4.0 v8 高端车的做工不仅仅展现在铁皮和里面的皮革，就连电脑调教都是那么的细腻！效果好到爆，完美解决原厂油门要深踩的问题！</a>
-							</p>
-						</div>
-					</li>
-				</ul>
-
-				<ul class="infos">
-					<li class="info pr">
-						<a href="#" class="link-pic">
-							<img class="lazyout-1" width="280" src="http://7xrv5p.com1.z0.glb.clouddn.com/768777060371026997.jpg">
-						</a>
-						<div class="i-title">
-							<p>2016-03-10
-								<span class="car-type">大众高尔夫GTI</span>
-								<span class="location">上海市</span>
-							</p>
-						</div>
-						<div class="i-descr">
-							<p class="text">
-								<a target="_blank" href="#" style="color:#5e5e5e">高尔夫GTI，刷写我们的程序，猛的要命，车主满意！</a>
-							</p>
-						</div>
-					</li>
-
-					<li class="info pr">
-						<a href="#" class="link-pic">
-							<img class="lazyout-1" width="280" src="http://7xrv5p.com1.z0.glb.clouddn.com/658337894833124278.jpg">
-						</a>
-						<div class="i-title">
-							<p>2016-03-07
-								<span class="car-type">奔驰C200</span>
-								<span class="location">深圳市</span>
-							</p>
-						</div>
-						<div class="i-descr">
-							<p class="text">
-								<a target="_blank" href="#" style="color:#5e5e5e">C200？生吃生吃！已经完成作业</a>
-							</p>
-						</div>
-					</li>
-				</ul>
-
-				<ul class="infos">
-					<li class="info pr">
-						<a href="#" class="link-pic">
-							<img class="lazyout-1" width="280" src="http://7xrv5p.com1.z0.glb.clouddn.com/790897209442351581.jpg">
-						</a>
-						<div class="i-title">
-							<p>2016-03-10
-								<span class="car-type">大众高尔夫</span>
-								<span class="location">深圳市</span>
-							</p>
-						</div>
-						<div class="i-descr">
-							<p class="text">
-								<a target="_blank" href="#" style="color:#5e5e5e">高6 1.4t 开工 开工 开始刷写ECU</a>
-							</p>
-						</div>
-					</li>
-
-					<li class="info pr">
-						<a href="#" class="link-pic">
-							<img class="lazyout-1" width="280" src="http://7xrv5p.com1.z0.glb.clouddn.com/006.jpg">
-						</a>
-						<div class="i-title">
-							<p>2016-03-10
-								<span class="car-type">宝马5系</span>
-								<span class="location">上海市</span>
-							</p>
-						</div>
-						<div class="i-descr">
-							<p class="text">
-								<a target="_blank" href="#" style="color:#5e5e5e">宝马520li完工，车主原装车！184ph升级一阶段的程序270ph，猛的不要不要的！想刷的朋友还在犹豫什么呢？</a>
-							</p>
-						</div>
-					</li>
-				</ul>
-
+			<% } %>
 			</div>
 		</div>
 	</body>

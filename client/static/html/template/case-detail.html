@@ -1,0 +1,70 @@
+<% include header.html %>
+<link rel="stylesheet" href="./css/case_detail.css">
+<div class="case-detail">
+	<div class="layout">
+		<div class="intro">
+			<div class="image-area">
+				<div class="main-image">
+					<img src="<%-thumbnail_url %>" alt="img" style="display: block;">
+				</div>
+			</div>
+			<div class="desc-area">
+				<h3><%-car_type %></h3>
+				<h4><%-date %></h4>
+				<div class="info">
+					<div class="fl">
+						<p>刷写指导价格</p>
+						<h3 style="max-width:80px" class="mark"><%-guide_price %>元</h3>
+					</div>
+<!-- 					<div class="fl">
+						<p>百公里提速</p>
+						<h3 style="max-width:220px">
+							刷写前：6.2秒&nbsp;|&nbsp;刷写后：<span class="mark">3.8</span>秒
+						</h3>
+					</div>	 -->											
+					<div class="fl l">
+						<p>所在地</p>
+						<h3 style="max-width:80px"><%-location %></h3>
+					</div>
+				</div>
+
+				<div class="comment"><%-description %></div>
+			</div>
+		</div>
+		<div class="detail">
+			<% if(!!photo_url_1){ %>
+				<div class="image-wrapper">
+					<img src="<%-photo_url_1 %>">
+				</div>			
+			<% } %>
+			<% if(!!explanation_1){ %>
+				<div class="description"><%-explanation_1 %></div>	
+			<% } %>
+			<% if(!!photo_url_2){ %>
+				<div class="image-wrapper">
+					<img src="<%-photo_url_2 %>">
+				</div>			
+			<% } %>
+			<% if(!!explanation_2){ %>
+				<div class="description"><%-explanation_2 %></div>	
+			<% } %>
+			<% if(!!photo_url_3){ %>
+				<div class="image-wrapper">
+					<img src="<%-photo_url_3 %>">
+				</div>			
+			<% } %>
+			<% if(!!explanation_3){ %>
+				<div class="description"><%-explanation_3 %></div>	
+			<% } %>
+			<% if(!!photo_url_4){ %>
+				<div class="image-wrapper">
+					<img src="<%-photo_url_4 %>">
+				</div>			
+			<% } %>
+			<% if(!!explanation_4){ %>
+				<div class="description"><%-explanation_4 %></div>	
+			<% } %>			
+
+		</div>
+	</div>
+</div>

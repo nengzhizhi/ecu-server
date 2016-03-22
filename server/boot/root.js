@@ -28,7 +28,11 @@ module.exports = function(server) {
   })
 
   router.get('/cases', function (req, res) {
-    res.render('cases.html');
+    var CaseModel = server.models.Case;
+
+    CaseModel.find(function (err, cases) {
+      res.render('cases.html', { items: cases });
+    })
   })
 
   router.get('/contact', function (req, res) {
@@ -42,6 +46,24 @@ module.exports = function(server) {
   router.get('/support', function (req, res) {
     res.render('support.html');
   })  
+
+  router.get('/case', function (req, res) {
+    if (!req.query.id) {
+      res.render('cases.html');
+    } else {
+      var CaseModel = server.models.Case;
+      var id = req.query.id;
+
+      CaseModel.findOne({
+        where: { id: id }
+      }, function (err, item) {
+        if (!item)
+          return res.render('cases.html');
+
+        res.render('template/case-detail.html', item);
+      })
+    }
+  })
 
   server.use(router);
 };

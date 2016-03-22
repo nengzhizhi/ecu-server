@@ -11,6 +11,9 @@
     "car_type": {
       "type": "string"
     },
+    "guide_price": {
+      "type": "string"
+    },
     "thumbnail_url": {
       "type": "string"
     },

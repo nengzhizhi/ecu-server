@@ -56,6 +56,14 @@
               required: true
             }
           }, {
+            key: 'guide_price',
+            type: 'input',
+            templateOptions: {
+              label: '刷写指导价格',
+              type: 'input',
+              required: true
+            }
+          }, {
             key: 'description',
             type: 'input',
             templateOptions: {
@@ -134,7 +142,7 @@
               label: '图片地址五',
               type: 'input'
             }
-          }{
+          }, {
             key: 'explanation_5',
             type: 'input',
             templateOptions: {

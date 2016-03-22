@@ -44,7 +44,7 @@
 	padding-bottom: 5px;
 }
 
-.intro .desc-area .detail{
+.intro .desc-area .info{
 	background-color: #e6e6e6;
 	height: 75px;
 	padding: 20px 0;
@@ -91,4 +91,26 @@
 	max-width: 1122px;
 	margin-top: 20px;
 }
+
+.detail{
+	float: left;
+}
+
+.detail .image-wrapper{
+	padding: 5px;
+	border: 1px solid #e6e6e6;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.detail .description{
+	width: 650px;
+	font-size: 14px;
+	margin-bottom:50px;
+}
+
+.detail img{
+	width: 650px;
+}
+
 
