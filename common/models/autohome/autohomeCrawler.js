@@ -1,7 +1,7 @@
 var async = require('async');
-var superagent = require('superagent');
 var cheerio = require('cheerio');
-var iconv = require('iconv-lite');
+var Iconv = require('iconv-lite');
+var request = require('request');
 
 var AutohomeCrawler = module.exports = function(){
 }
@@ -44,23 +44,22 @@ AutohomeCrawler.crawlForumPage = function (forumUrl, callback) {
 		return callback(new Error('错误的地址！'));
 
 	var postUrls = [];
-	superagent.get(forumUrl)
-		.end(function (err, sres) {
-			if (!!err)
-				return callback(err);
+	request({
+		encoding: null,
+		url: forumUrl
+	}, function (err, response, body) {
+		if (!!err || response.statusCode != 200)
+			return callback(err);
 
-			var text = iconv.decode(new Buffer(sres.text), 'GBK').toString();
-			console.log(text);
-			var $ = cheerio.load(text);
+		var $ = cheerio.load(Iconv.decode(body, 'gb2312').toString());
 
-			$('.list_dl').each(function (index, item) {
-				//console.log($(item).find('dt').children('a').text());
-				var postUrl = $(item).find('dt').children('a').attr('href') 
-				if (!!postUrl)
-					postUrls.push(self.domain + postUrl);
-			})
-			callback(null, postUrls);
-		})	
+		$('.list_dl').each(function (index, item) {
+			var postUrl = $(item).find('dt').children('a').attr('href') 
+			if (!!postUrl)
+				postUrls.push(self.domain + postUrl);
+		})
+		callback(null, postUrls);		
+	})
 }
 
 
@@ -70,14 +69,15 @@ AutohomeCrawler.parsePostUrl = function (postUrl, callback) {
 	if (!postUrl.match(self.postUrlReg))
 		return callback(new Error('错误的PostUrl地址！'));
 
-	superagent.get(postUrl)
-		.end(function (err, sres) {
-			console.log(postUrl);
+	setTimeout(function(){
+		request({
+			encoding: null,
+			url: postUrl
+		}, function (err, response, body) {
+			if (!!err || response.statusCode != 200)
+				return callback(err);
 
-			if (!!err)
-				return callback(new Error('获取PostUrl页面失败！'));
-
-			var $ = cheerio.load(sres.text);
+			var $ = cheerio.load(Iconv.decode(body, 'gb2312').toString());
 			var pageText = $('.gopage').children().eq(1).text();
 			var pageNumber = pageText.replace(/[^0-9]/ig,"");
 			var pageUrls = [];
@@ -90,17 +90,22 @@ AutohomeCrawler.parsePostUrl = function (postUrl, callback) {
 
 			return callback(null, pageUrls);
 		})
+	}, 1000)	
 }
 
 AutohomeCrawler.crawlPostPage = function (url, callback) {
 	var self = this;
 
-	superagent.get(url)
-		.end(function (err, sres){
-			if (!!err)
+	setTimeout(function(){
+		request({
+			encoding: null,
+			url: url
+		}, function (err, response, body) {
+			if (!!err || response.statusCode != 200)
 				return callback(err);
 
-			var $ = cheerio.load(sres.text);
+			var $ = cheerio.load(Iconv.decode(body, 'gb2312').toString());
+
 			var comments = $('.conleft');
 
 			if (!comments)
@@ -153,17 +158,25 @@ AutohomeCrawler.crawlPostPage = function (url, callback) {
 				return callback(null, users);
 			})
 		})
+	}, 1000)
 }
 
 AutohomeCrawler.parseLastLogin = function (uid, callback) {
 	var detailUrl = 'http://i.service.autohome.com.cn/clubapp/OtherReply-' + uid + '-1.html';
 
-	superagent.get(detailUrl).end(function (err, sres) {
-		if (!!err)
-			return callback(err);
+	setTimeout(function(){
+		request({
+			encoding: null,
+			url: detailUrl
+		}, function (err, response, body) {
+			if (!!err || response.statusCode != 200)
+				return callback(err);
 
-		var $ = cheerio.load(sres.text);
-		var lastLogin = $('.item-w1').eq(1).next().children().eq(1).text();
-		return callback(null, lastLogin);
-	})
+			var text = Iconv.decode(body, 'gb2312').toString();
+			var $ = cheerio.load(text);
+
+			var lastLogin = $('.item-w1').eq(1).next().children().eq(1).text();
+			return callback(null, lastLogin);
+		})
+	}, 1000);
 }

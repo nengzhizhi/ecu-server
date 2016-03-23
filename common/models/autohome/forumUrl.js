@@ -33,6 +33,7 @@ module.exports = function (ForumUrl) {
 					next(err, filterUrls);
 				})
 			}, function parsePostUrls (filterUrls, next) {
+				console.log('filterUrls: ', filterUrls);
 				var urls = [];
 
 				async.forEach(filterUrls.slice(1, 10), function (postUrl, done) {
@@ -55,15 +56,17 @@ module.exports = function (ForumUrl) {
 							AccountModel.findOrCreate({
 								uname: profile.uname
 							}, function (err, instance) {
-								instance.uid = profile.uid;
-								instance.post_number = profile.postNumber;
-								instance.reply_number = profile.replyNumber;
-								instance.register_time = profile.registerTime;
-								instance.from = profile.from;
-								instance.car_type = profile.carType;
-								instance.last_login = profile.last_login;
-								instance.status = 'crawled';
-								instance.save();
+								if (!instance.uid) {
+									instance.uid = profile.uid;
+									instance.post_number = profile.postNumber;
+									instance.reply_number = profile.replyNumber;
+									instance.register_time = profile.registerTime;
+									instance.from = profile.from;
+									instance.car_type = profile.carType;
+									instance.last_login = profile.last_login;
+									instance.status = 'crawled';
+									instance.save();
+								}
 								done2(err);
 							})
 						}, function (err) {
