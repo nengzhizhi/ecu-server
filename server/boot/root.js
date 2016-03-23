@@ -60,7 +60,19 @@ module.exports = function(server) {
         if (!item)
           return res.render('cases.html');
 
-        res.render('template/case-detail.html', item);
+        var detail = [];
+        for (var i = 0; i <= 4; i++) {
+          var cursor_str = (i + 1).toString();
+          detail.push({
+            photo: eval('item.photo_url_' + cursor_str),
+            explanation: eval('item.explanation_' + cursor_str)
+          });
+        }
+
+        res.render('template/case-detail.html', {
+          info: item,
+          detail: detail
+        });
       })
     }
   })

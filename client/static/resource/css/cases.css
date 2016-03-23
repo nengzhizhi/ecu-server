@@ -39,6 +39,11 @@
 	z-index: 100;
 	margin-top: 10px;
 	margin-bottom: 20px;
+	-webkit-box-shadow: 5px 5px 5px #e5e5e5;
+	-moz-box-shadow: 5px 5px 5px #e5e5e5;
+	-ms-box-shadow: 5px 5px 5px #e5e5e5;
+	box-shadow: 5px 5px 5px #e5e5e5;
+	border: 1px solid #e6e6e6;	
 }
 
 .infos .link-pic {
@@ -58,7 +63,8 @@
 
 .infos .i-title .car-type{
 	margin-left: 10px;
-	color: #5e5e5e;
+	color: #333;
+	font-weight: bold;
 }
 
 .infos .i-title .location{

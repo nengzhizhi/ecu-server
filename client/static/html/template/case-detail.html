@@ -5,16 +5,16 @@
 		<div class="intro">
 			<div class="image-area">
 				<div class="main-image">
-					<img src="<%-thumbnail_url %>" alt="img" style="display: block;">
+					<img src="<%-info.thumbnail_url %>" alt="img" style="display: block;">
 				</div>
 			</div>
 			<div class="desc-area">
-				<h3><%-car_type %></h3>
-				<h4><%-date %></h4>
+				<h3><%-info.car_type %></h3>
+				<h4><%-info.date %></h4>
 				<div class="info">
 					<div class="fl">
 						<p>刷写指导价格</p>
-						<h3 style="max-width:80px" class="mark"><%-guide_price %>元</h3>
+						<h3 style="max-width:80px" class="mark"><%-info.guide_price %>元</h3>
 					</div>
 <!-- 					<div class="fl">
 						<p>百公里提速</p>
@@ -24,46 +24,24 @@
 					</div>	 -->											
 					<div class="fl l">
 						<p>所在地</p>
-						<h3 style="max-width:80px"><%-location %></h3>
+						<h3 style="max-width:80px"><%-info.location %></h3>
 					</div>
 				</div>
 
-				<div class="comment"><%-description %></div>
+				<div class="comment"><%-info.description %></div>
 			</div>
 		</div>
 		<div class="detail">
-			<% if(!!photo_url_1){ %>
-				<div class="image-wrapper">
-					<img src="<%-photo_url_1 %>">
-				</div>			
+			<% for (var i =0; i< detail.length; i ++){ %>
+				<% if (detail[i].photo){ %>
+					<div class="image-wrapper">
+						<img src="<%-detail[i].photo %>">
+					</div>				
+				<% } %>
+				<% if (detail[i].explanation){ %>
+					<div class="description"><%-detail[i].explanation %></div>	
+				<% } %>
 			<% } %>
-			<% if(!!explanation_1){ %>
-				<div class="description"><%-explanation_1 %></div>	
-			<% } %>
-			<% if(!!photo_url_2){ %>
-				<div class="image-wrapper">
-					<img src="<%-photo_url_2 %>">
-				</div>			
-			<% } %>
-			<% if(!!explanation_2){ %>
-				<div class="description"><%-explanation_2 %></div>	
-			<% } %>
-			<% if(!!photo_url_3){ %>
-				<div class="image-wrapper">
-					<img src="<%-photo_url_3 %>">
-				</div>			
-			<% } %>
-			<% if(!!explanation_3){ %>
-				<div class="description"><%-explanation_3 %></div>	
-			<% } %>
-			<% if(!!photo_url_4){ %>
-				<div class="image-wrapper">
-					<img src="<%-photo_url_4 %>">
-				</div>			
-			<% } %>
-			<% if(!!explanation_4){ %>
-				<div class="description"><%-explanation_4 %></div>	
-			<% } %>			
 
 		</div>
 	</div>
