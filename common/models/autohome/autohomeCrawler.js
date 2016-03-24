@@ -69,114 +69,113 @@ AutohomeCrawler.parsePostUrl = function (postUrl, callback) {
 	if (!postUrl.match(self.postUrlReg))
 		return callback(new Error('错误的PostUrl地址！'));
 
-	setTimeout(function(){
-		request({
-			encoding: null,
-			url: postUrl
-		}, function (err, response, body) {
-			if (!!err || response.statusCode != 200)
-				return callback(err);
+	request({
+		encoding: null,
+		url: postUrl
+	}, function (err, response, body) {
+		console.log(response.statusCode, postUrl);
+		
+		if (!!err || response.statusCode != 200)
+			return callback(err);
 
-			var $ = cheerio.load(Iconv.decode(body, 'gb2312').toString());
-			var pageText = $('.gopage').children().eq(1).text();
-			var pageNumber = pageText.replace(/[^0-9]/ig,"");
-			var pageUrls = [];
+		var $ = cheerio.load(Iconv.decode(body, 'gb2312').toString());
+		var pageText = $('.gopage').children().eq(1).text();
+		var pageNumber = pageText.replace(/[^0-9]/ig,"");
+		var pageUrls = [];
 
-			for (var i = 1; i <= pageNumber; i ++) {
-				postUrl.replace(self.postUrlReg, function ($1, $2, $3, $4) {
-					pageUrls.push('http://club.autohome.com.cn/bbs/thread-' + $2 + '-' + $3 + '-' + $4 + '-' + i + '.html');
-				})
-			}
+		for (var i = 1; i <= pageNumber; i ++) {
+			postUrl.replace(self.postUrlReg, function ($1, $2, $3, $4) {
+				pageUrls.push('http://club.autohome.com.cn/bbs/thread-' + $2 + '-' + $3 + '-' + $4 + '-' + i + '.html');
+			})
+		}
 
-			return callback(null, pageUrls);
-		})
-	}, 1000)	
+		return callback(null, pageUrls);
+	})
 }
 
 AutohomeCrawler.crawlPostPage = function (url, callback) {
 	var self = this;
 
-	setTimeout(function(){
-		request({
-			encoding: null,
-			url: url
-		}, function (err, response, body) {
-			if (!!err || response.statusCode != 200)
-				return callback(err);
+	request({
+		encoding: null,
+		url: url
+	}, function (err, response, body) {
+		console.log(response.statusCode, url);
 
-			var $ = cheerio.load(Iconv.decode(body, 'gb2312').toString());
+		if (!!err || response.statusCode != 200)
+			return callback(err);
 
-			var comments = $('.conleft');
+		var $ = cheerio.load(Iconv.decode(body, 'gb2312').toString());
 
-			if (!comments)
-				return callback(new Error('获取评论列表失败！'));
+		var comments = $('.conleft');
 
-			var users = [];
-			comments.each(function (index, comment) {
-				var uelement = $(this).find('a[xname=uname]');
+		if (!comments)
+			return callback(new Error('获取评论列表失败！'));
 
-				var uname = uelement.text();
-				var uid = uelement.attr('href').replace(/[^0-9]/ig,"");
+		var users = [];
+		comments.each(function (index, comment) {
+			var uelement = $(this).find('a[xname=uname]');
 
-				if (uname.match(self.unameReg)) {
-					var profile = {};
-					profile.uname = uname;
-					profile.uid = uid;
-					
-					var leftlists = $(this).find('.leftlist').children();
-					if (leftlists && leftlists.eq(3)) {
-						profile.postNumber = leftlists.eq(3).children().eq(0).text();
-						profile.postNumber = profile.postNumber.substr(0, profile.postNumber.length - 2);
+			var uname = uelement.text();
+			var uid = uelement.attr('href').replace(/[^0-9]/ig,"");
 
-						profile.replyNumber = leftlists.eq(3).children().eq(2).text();
-						profile.replyNumber = profile.replyNumber.substr(0, profile.replyNumber.length - 2);
-					}
+			if (uname.match(self.unameReg)) {
+				var profile = {};
+				profile.uname = uname;
+				profile.uid = uid;
+				
+				var leftlists = $(this).find('.leftlist').children();
+				if (leftlists && leftlists.eq(3)) {
+					profile.postNumber = leftlists.eq(3).children().eq(0).text();
+					profile.postNumber = profile.postNumber.substr(0, profile.postNumber.length - 2);
 
-					if (leftlists && leftlists.eq(4)) {
-						profile.registerTime = leftlists.eq(4).text();
-						profile.registerTime = profile.registerTime.substr(3);
-					}
-
-					if (leftlists && leftlists.eq(5)) {
-						profile.from = leftlists.eq(5).children().eq(0).text();
-					}
-
-					if (leftlists && leftlists.eq(6)) {
-						profile.carType = leftlists.eq(6).children().eq(-1).text();
-					}
-
-					users.push(profile);
+					profile.replyNumber = leftlists.eq(3).children().eq(2).text();
+					profile.replyNumber = profile.replyNumber.substr(0, profile.replyNumber.length - 2);
 				}
-			})
 
-			async.forEach(users, function (user, done) {
-				self.parseLastLogin(user.uid, function (err, lastLogin) {
-					user.lastLogin = lastLogin;
-					done();
-				})
-			}, function (err) {
-				return callback(null, users);
-			})
+				if (leftlists && leftlists.eq(4)) {
+					profile.registerTime = leftlists.eq(4).text();
+					profile.registerTime = profile.registerTime.substr(3);
+				}
+
+				if (leftlists && leftlists.eq(5)) {
+					profile.from = leftlists.eq(5).children().eq(0).text();
+				}
+
+				if (leftlists && leftlists.eq(6)) {
+					profile.carType = leftlists.eq(6).children().eq(-1).text();
+				}
+
+				users.push(profile);
+			}
 		})
-	}, 1000)
+
+		async.forEach(users, function (user, done) {
+			self.parseLastLogin(user.uid, function (err, lastLogin) {
+				user.lastLogin = lastLogin;
+				done();
+			})
+		}, function (err) {
+			return callback(null, users);
+		})
+	})
 }
 
 AutohomeCrawler.parseLastLogin = function (uid, callback) {
 	var detailUrl = 'http://i.service.autohome.com.cn/clubapp/OtherReply-' + uid + '-1.html';
 
-	setTimeout(function(){
-		request({
-			encoding: null,
-			url: detailUrl
-		}, function (err, response, body) {
-			if (!!err || response.statusCode != 200)
-				return callback(err);
+	request({
+		encoding: null,
+		url: detailUrl
+	}, function (err, response, body) {
+		console.log(response.statusCode, uid);
+		if (!!err || response.statusCode != 200)
+			return callback(err);
 
-			var text = Iconv.decode(body, 'gb2312').toString();
-			var $ = cheerio.load(text);
+		var text = Iconv.decode(body, 'gb2312').toString();
+		var $ = cheerio.load(text);
 
-			var lastLogin = $('.item-w1').eq(1).next().children().eq(1).text();
-			return callback(null, lastLogin);
-		})
-	}, 1000);
+		var lastLogin = $('.item-w1').eq(1).next().children().eq(1).text();
+		return callback(null, lastLogin);
+	})
 }
