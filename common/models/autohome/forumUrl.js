@@ -13,14 +13,14 @@ module.exports = function (ForumUrl) {
 			function filterUrl (urls, next) {
 				var filterUrls = [];
 				
-				async.forEach(urls, function (url, done) {
+				async.forEachOfSeries(urls, function (url, idle, done) {
 					PostUrl.findOrCreate({ url: url }, function (err, instance) {
 						if (!!err)
 							return cb(err);
 
-						if (!instance.crawl_time || Date.now() - instance.crawl_time > 1000 * 3600 ) {
+						//if (!instance.crawl_time || Date.now() - instance.crawl_time > 1000 * 3600 ) {
 							filterUrls.push(url);
-						}
+						//}
 
 						if (!instance.crawl_time) {
 							instance.crawl_time = new Date();
@@ -36,9 +36,10 @@ module.exports = function (ForumUrl) {
 				console.log('filterUrls: ', filterUrls);
 				var urls = [];
 
-				async.forEach(filterUrls.slice(1, 10), function (postUrl, done) {
+				async.forEachOfSeries(filterUrls.slice(1, 2), function (postUrl, idle, done) {
 					crawler.parsePostUrl(postUrl, function (err, pageUrls) {
 						urls = urls.concat(pageUrls);
+						console.log('postUrls: ', urls);
 						done(err);
 					})
 				}, function (err) {
@@ -47,12 +48,12 @@ module.exports = function (ForumUrl) {
 			}, function crawlPostPages (pageurls, next) {
 				var users = [];
 
-				async.forEach(pageurls.slice(1, 10), function (pageUrl, done1) {
+				async.forEachOfSeries(pageurls.slice(1, 2), function (pageUrl, idle, done1) {
 					crawler.crawlPostPage(pageUrl, function (err, profiles) {
 						console.log('crawled ', profiles.length, ' users');
 						users = users.concat(profiles);
 
-						async.forEach(profiles, function (profile, done2) {
+						async.forEachOfSeries(profiles, function (profile, idle, done2) {
 							AccountModel.findOrCreate({
 								uname: profile.uname
 							}, function (err, instance) {

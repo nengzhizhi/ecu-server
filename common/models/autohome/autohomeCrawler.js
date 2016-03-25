@@ -27,7 +27,7 @@ AutohomeCrawler.crawlForumUrl = function (forumUrl, start, number, callback) {
 	}
 
 	var postUrls = [];
-	async.forEach(forumUrls, function (forumUrl, done) {
+	async.forEachOfSeries(forumUrls, function (forumUrl, idle, done) {
 		self.crawlForumPage(forumUrl, function (err, urls) {
 			postUrls = postUrls.concat(urls);
 			done(err);
@@ -46,8 +46,11 @@ AutohomeCrawler.crawlForumPage = function (forumUrl, callback) {
 	var postUrls = [];
 	request({
 		encoding: null,
-		url: forumUrl
+		url: forumUrl,
+		gzip:true
 	}, function (err, response, body) {
+		var buffer = new Buffer(body);
+		//console.log(response.statusCode, 'crawlForumPage: ', Iconv.decode(body, 'gb2312').toString());
 		if (!!err || response.statusCode != 200)
 			return callback(err);
 
@@ -58,6 +61,7 @@ AutohomeCrawler.crawlForumPage = function (forumUrl, callback) {
 			if (!!postUrl)
 				postUrls.push(self.domain + postUrl);
 		})
+		//console.log('crawlForumPage: ', postUrls);
 		callback(null, postUrls);		
 	})
 }
@@ -71,13 +75,15 @@ AutohomeCrawler.parsePostUrl = function (postUrl, callback) {
 
 	request({
 		encoding: null,
-		url: postUrl
+		url: postUrl,
+		gzip:true
 	}, function (err, response, body) {
 		console.log(response.statusCode, postUrl);
 		
 		if (!!err || response.statusCode != 200)
 			return callback(err);
 
+		console.log(Iconv.decode(body, 'gb2312').toString());
 		var $ = cheerio.load(Iconv.decode(body, 'gb2312').toString());
 		var pageText = $('.gopage').children().eq(1).text();
 		var pageNumber = pageText.replace(/[^0-9]/ig,"");
@@ -98,7 +104,8 @@ AutohomeCrawler.crawlPostPage = function (url, callback) {
 
 	request({
 		encoding: null,
-		url: url
+		url: url,
+		gzip:true
 	}, function (err, response, body) {
 		console.log(response.statusCode, url);
 
@@ -166,7 +173,8 @@ AutohomeCrawler.parseLastLogin = function (uid, callback) {
 
 	request({
 		encoding: null,
-		url: detailUrl
+		url: detailUrl,
+		gzip:true
 	}, function (err, response, body) {
 		console.log(response.statusCode, uid);
 		if (!!err || response.statusCode != 200)
