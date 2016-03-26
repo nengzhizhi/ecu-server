@@ -50,7 +50,6 @@ AutohomeCrawler.crawlForumPage = function (forumUrl, callback) {
 		gzip:true
 	}, function (err, response, body) {
 		var buffer = new Buffer(body);
-		//console.log(response.statusCode, 'crawlForumPage: ', Iconv.decode(body, 'gb2312').toString());
 		if (!!err || response.statusCode != 200)
 			return callback(err);
 
@@ -61,12 +60,11 @@ AutohomeCrawler.crawlForumPage = function (forumUrl, callback) {
 			if (!!postUrl)
 				postUrls.push(self.domain + postUrl);
 		})
-		//console.log('crawlForumPage: ', postUrls);
 		callback(null, postUrls);		
 	})
 }
 
-
+//根据帖子数量，分析帖子页面地址列表（URL）
 AutohomeCrawler.parsePostUrl = function (postUrl, callback) {
 	var self = this;
 
@@ -78,12 +76,9 @@ AutohomeCrawler.parsePostUrl = function (postUrl, callback) {
 		url: postUrl,
 		gzip:true
 	}, function (err, response, body) {
-		console.log(response.statusCode, postUrl);
-		
 		if (!!err || response.statusCode != 200)
 			return callback(err);
 
-		console.log(Iconv.decode(body, 'gb2312').toString());
 		var $ = cheerio.load(Iconv.decode(body, 'gb2312').toString());
 		var pageText = $('.gopage').children().eq(1).text();
 		var pageNumber = pageText.replace(/[^0-9]/ig,"");
@@ -99,6 +94,8 @@ AutohomeCrawler.parsePostUrl = function (postUrl, callback) {
 	})
 }
 
+
+//爬取详情页面
 AutohomeCrawler.crawlPostPage = function (url, callback) {
 	var self = this;
 
@@ -107,7 +104,7 @@ AutohomeCrawler.crawlPostPage = function (url, callback) {
 		url: url,
 		gzip:true
 	}, function (err, response, body) {
-		console.log(response.statusCode, url);
+		console.log("开始爬取页面：", url);
 
 		if (!!err || response.statusCode != 200)
 			return callback(err);
@@ -115,7 +112,6 @@ AutohomeCrawler.crawlPostPage = function (url, callback) {
 		var $ = cheerio.load(Iconv.decode(body, 'gb2312').toString());
 
 		var comments = $('.conleft');
-
 		if (!comments)
 			return callback(new Error('获取评论列表失败！'));
 
@@ -157,17 +153,21 @@ AutohomeCrawler.crawlPostPage = function (url, callback) {
 			}
 		})
 
-		async.forEach(users, function (user, done) {
+		async.forEachOfSeries(users, function (user, idle, done) {
 			self.parseLastLogin(user.uid, function (err, lastLogin) {
 				user.lastLogin = lastLogin;
 				done();
 			})
 		}, function (err) {
+			console.log("爬取页面结束：", url);
+			console.log("获取用户数量：", users.length);
 			return callback(null, users);
 		})
 	})
 }
 
+
+//爬取用户个人资料页面，获取最后登录时间
 AutohomeCrawler.parseLastLogin = function (uid, callback) {
 	var detailUrl = 'http://i.service.autohome.com.cn/clubapp/OtherReply-' + uid + '-1.html';
 
@@ -176,7 +176,6 @@ AutohomeCrawler.parseLastLogin = function (uid, callback) {
 		url: detailUrl,
 		gzip:true
 	}, function (err, response, body) {
-		console.log(response.statusCode, uid);
 		if (!!err || response.statusCode != 200)
 			return callback(err);
 

@@ -5,6 +5,9 @@ module.exports = function (ForumUrl) {
 	ForumUrl.crawl = function (forumUrl, start, number, cb) {
 		var PostUrl = ForumUrl.app.models.PostUrl;
 		var AccountModel = ForumUrl.app.models.AutohomeAccount;
+		var crawledUserNumber = 0;
+		var toCrawleUrlNumber = 0;
+		var crawledUrlNumber = 0;
 
 		async.waterfall([
 			function crawlForum (next) {
@@ -18,9 +21,11 @@ module.exports = function (ForumUrl) {
 						if (!!err)
 							return cb(err);
 
-						//if (!instance.crawl_time || Date.now() - instance.crawl_time > 1000 * 3600 ) {
+						toCrawleUrlNumber ++;
+
+						if (!instance.crawl_time || Date.now() - instance.crawl_time > 1000 * 3600 ) {
 							filterUrls.push(url);
-						//}
+						}
 
 						if (!instance.crawl_time) {
 							instance.crawl_time = new Date();
@@ -33,14 +38,26 @@ module.exports = function (ForumUrl) {
 					next(err, filterUrls);
 				})
 			}, function parsePostUrls (filterUrls, next) {
-				console.log('filterUrls: ', filterUrls);
 				var urls = [];
 
-				async.forEachOfSeries(filterUrls.slice(1, 2), function (postUrl, idle, done) {
+				async.forEachOfSeries(filterUrls, function (postUrl, idle, done1) {
 					crawler.parsePostUrl(postUrl, function (err, pageUrls) {
 						urls = urls.concat(pageUrls);
-						console.log('postUrls: ', urls);
-						done(err);
+
+						async.forEachOfSeries(pageUrls, function (pageurl, idle, done2) {
+							PostUrl.findOrCreate({ url: pageurl }, function (err, instance) {
+								if (!!err)
+									return cb(err);
+
+								toCrawleUrlNumber ++;
+
+								instance.crawl_time = new Date();
+								instance.save();
+								done2();
+							})
+						})
+
+						done1(err);
 					})
 				}, function (err) {
 					next(err, urls);
@@ -48,9 +65,13 @@ module.exports = function (ForumUrl) {
 			}, function crawlPostPages (pageurls, next) {
 				var users = [];
 
-				async.forEachOfSeries(pageurls.slice(1, 2), function (pageUrl, idle, done1) {
+				async.forEachOfSeries(pageurls, function (pageUrl, idle, done1) {
 					crawler.crawlPostPage(pageUrl, function (err, profiles) {
-						console.log('crawled ', profiles.length, ' users');
+						
+						//统计完成百分比
+						crawledUrlNumber ++;
+						console.log('完成爬虫百分比：', crawledUrlNumber/toCrawleUrlNumber ,'%');
+						
 						users = users.concat(profiles);
 
 						async.forEachOfSeries(profiles, function (profile, idle, done2) {
@@ -68,6 +89,8 @@ module.exports = function (ForumUrl) {
 									instance.status = 'crawled';
 									instance.save();
 								}
+
+								crawledUserNumber ++;
 								done2(err);
 							})
 						}, function (err) {
@@ -79,8 +102,8 @@ module.exports = function (ForumUrl) {
 				})
 			}
 		], function (err, users) {
-			console.log('crawled finished!');
-			console.log('crawled users number: ', users.length);
+			console.log('crawled url number: ', crawledUrlNumber);
+			console.log('crawled users number: ', crawledUserNumber);
 			cb(err, users);
 		})
 	}
