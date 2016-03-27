@@ -37,6 +37,7 @@ AutohomeCrawler.crawlForumUrl = function (forumUrl, start, number, callback) {
 	})
 }
 
+//爬取论坛页面，获取帖子列表
 AutohomeCrawler.crawlForumPage = function (forumUrl, callback) {
 	var self = this;
 

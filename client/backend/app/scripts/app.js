@@ -19,6 +19,7 @@
       'com.module.users',
       'com.module.example',
       'com.module.order',
-      'com.module.cases'
+      'com.module.cases',
+      'com.module.autohome'
     ])
 })();

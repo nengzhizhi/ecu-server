@@ -14,7 +14,6 @@
 					templateUrl: 'modules/cases/views/list.html',
 					controllerAs: 'ctrl',
 					controller: function ($state, cases, CaseService) {
-						console.dir(cases)
 						this.cases = cases;
 						this.deleteCase = function(id){
 							CaseService.deleteCase(id, function(){

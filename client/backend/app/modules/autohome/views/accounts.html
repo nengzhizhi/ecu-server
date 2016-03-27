@@ -1,0 +1,61 @@
+<div class="global_mod user_global_opr float_layout">
+	<div class="global_info">
+		<div class="search_bar" style="margin-bottom:30px">
+			<span class="frm_input_box search with_del append ">
+				<a class="del_btn jsSearchInputClose" href="javascript:" style="display:none">
+					<i class="icon_search_del"></i>&nbsp;
+				</a>
+				<a href="javascript:" class="frm_input_append jsSearchInputBt">
+					<i class="icon16_common search_gray">搜索</i>&nbsp;
+				</a>
+				<input type="text" value="" class="frm_input jsSearchInput" placeholder="xx">
+			</span>
+		</div>
+	</div>
+	<div class="global_extra">
+		<a ui-sref="app.autohome.add" class="btn btn_primary btn_add">
+			<i class="icon14_common add_white"></i>添加账号</a>
+	</div>
+</div>
+
+<table class="table">
+	<thead class="thead">
+		<tr>
+			<th class="table_cell">用户名</th>
+      <th class="table_cell">来自</th>
+      <th class="table_cell">车型</th>
+      <th class="table_cell">状态</th>
+      <th class="table_cell">操作</th>
+		</tr>
+	</thead>
+	<tbody class="tbody">
+		<tr ng-repeat="account in ctrl.paginator.currentPageItems">
+			<td class="table_cell">{{account.uname}}</td>
+			<td class="table_cell">{{account.from}}</td>
+			<td class="table_cell">{{account.car_type}}</td>
+			<td class="table_cell">{{account.status}}</td>
+			<td class="table_cell">
+				<a ui-sref="app.autohome.edit({id: account.id})">编辑</a>&nbsp;&nbsp;
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="pagination_wrp pageNavigator">
+  <div class="pagination">
+  <span class="page_nav_area">
+    <a href="javascript:void(0);" class="btn page_prev" ng-click="ctrl.paginator.prev()" ng-show="ctrl.paginator.hasPrev()"><i class="arrow"></i></a>
+      <span class="page_num">
+        <label>{{ctrl.paginator.currentPageNumber}}</label>
+        <span class="num_gap">/</span>
+        <label>{{ctrl.paginator.totalPageCount}}</label>
+      </span>
+    <a href="javascript:void(0);" class="btn page_next" ng-click="ctrl.paginator.next()" ng-show="ctrl.paginator.hasNext()"><i class="arrow"></i></a>        
+  </span>
+  
+  <span class="goto_area">
+    <input type="text" ng-model="ctrl.jumpPageNumber">
+    <a href="javascript:void(0);" class="btn page_go" ng-click="ctrl.paginator.jump(ctrl.jumpPageNumber)">跳转</a>
+  </span>
+  </div>
+</div>

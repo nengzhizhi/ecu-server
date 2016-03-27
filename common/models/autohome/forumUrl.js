@@ -40,6 +40,7 @@ module.exports = function (ForumUrl) {
 			}, function parsePostUrls (filterUrls, next) {
 				var urls = [];
 
+				//filterUrls root thread_urls
 				async.forEachOfSeries(filterUrls, function (postUrl, idle, done1) {
 					crawler.parsePostUrl(postUrl, function (err, pageUrls) {
 						urls = urls.concat(pageUrls);
@@ -65,6 +66,7 @@ module.exports = function (ForumUrl) {
 			}, function crawlPostPages (pageurls, next) {
 				var users = [];
 
+				//
 				async.forEachOfSeries(pageurls, function (pageUrl, idle, done1) {
 					crawler.crawlPostPage(pageUrl, function (err, profiles) {
 						
@@ -88,9 +90,9 @@ module.exports = function (ForumUrl) {
 									instance.last_login = profile.last_login;
 									instance.status = 'crawled';
 									instance.save();
+									crawledUserNumber ++;
 								}
-
-								crawledUserNumber ++;
+								
 								done2(err);
 							})
 						}, function (err) {
