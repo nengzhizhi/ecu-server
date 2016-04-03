@@ -47,7 +47,7 @@
 						}
 					}
 				})
-				.state('app.examples.edit', {
+				.state('app.example.edit', {
 					url: '/edit/:id',
 					templateUrl: 'modules/examples/views/form.html',
 					controllerAs: 'ctrl',

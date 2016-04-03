@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="js cssanimations"><head lang="en">
+  <meta charset="UTF-8">
+  <title>Landing Page | Amaze UI Example</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <link rel="alternate icon" type="image/png" href="/i/favicon.png">
+  <link rel="stylesheet" href="./css/amazeui.min.css">
+  <style>
+    .get {
+      background: #1E5B94;
+      color: #fff;
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .get-title {
+      font-size: 200%;
+      border: 2px solid #fff;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    .get-btn {
+      background: #fff;
+    }
+
+    .detail {
+      background: #fff;
+    }
+
+    .detail-h2 {
+      text-align: center;
+      font-size: 150%;
+      margin: 40px 0;
+    }
+
+    .detail-h3 {
+      color: #1f8dd6;
+    }
+
+    .detail-p {
+      color: #7f8c8d;
+    }
+
+    .detail-mb {
+      margin-bottom: 30px;
+    }
+
+    .hope {
+      background: #0bb59b;
+      padding: 50px 0;
+    }
+
+    .hope-img {
+      text-align: center;
+    }
+
+    .hope-hr {
+      border-color: #149C88;
+    }
+
+    .hope-title {
+      font-size: 140%;
+    }
+
+    .about {
+      background: #fff;
+      padding: 40px 0;
+      color: #7f8c8d;
+    }
+
+    .about-color {
+      color: #34495e;
+    }
+
+    .about-title {
+      font-size: 180%;
+      padding: 30px 0 50px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #7f8c8d;
+      margin: 0;
+      padding: 15px 0;
+      text-align: center;
+      background: #2d3e50;
+    }
+    /*返回顶部*/
+    .m-top-cbbfixed {
+      position: fixed;
+      right: 10px;
+      transition: bottom ease .3s;
+      bottom: -85px;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    .m-top-cbbtn {
+      width: 40px;
+      height: 40px;
+      display: block;
+      background-color: #d22e3e;
+    }
+
+    .m-top-go {
+      transition: background-color ease .3s;
+      margin-top: 1px;
+    }
+    .m-top-go:hover {
+      background-color: #ba1f2e;
+    }
+
+    .m-top-goicon {
+      float: left;
+      margin: 14px 0 0 9px;
+      width: 23px;
+      height: 12px;
+      background: url('./images/side-icon02.png?1406598120');
+    }
+
+    .m-top-weixin {
+      background: #333;
+    }
+    .m-top-weixin div {
+      background: url('http://7xrv5p.com1.z0.glb.clouddn.com/wx.png');
+      width: 194px;
+      height: 199px;
+      position: absolute;
+      left: -194px;
+      top: -115px;
+      opacity: 0;
+      transform: scale(0);
+      -webkit-transform: scale(0);
+      transform-origin: 100% 70%;
+      -webkit-transform-origin: 100% 70%;
+      transition: transform ease .3s, opacity ease .3s;
+      -webkit-transition: all ease .3s;
+      display: none\0;
+      *display: none;
+    }
+    .m-top-weixin:hover div {
+      display: block;
+      transform: scale(1);
+      -webkit-transform: scale(1);
+      opacity: 1;
+      *display: block;
+    }
+
+    .m-top-weixin-icon {
+      float: left;
+      margin: 12px 0 0 11px;
+      width: 18px;
+      height: 18px;
+      background: url('./images/side-icon01.png?1406598156');
+    }
+    
+  </style>
+</head>
+<body class="">
+
+
+<header class="m-hd">
+  <section class="am-show-md-up">
+  <div class="am-container">
+    <!--PC导航-->
+    <a href="http://www.imj2.com/" rel="nofollow" class="m-logo"><i class="am-icon-spinner"></i>Dim ECU</a>
+    <nav>
+     <ul class="m-nav am-nav am-nav-pills am-fr">
+      <li><a href="http://www.imj2.com/" rel="nofollow">网站首页</a></li>
+      <li><a href="/anli/" rel="nofollow">案例展示</a></li>
+      <li><a href="/fuwu/" rel="nofollow">服务内容</a></li>
+      <li><a href="/zixun/" rel="nofollow">最新动态</a></li>
+      <li><a href="/about/" rel="nofollow">关于我们</a></li>
+      <li><a href="/contact/" rel="nofollow">联系我们</a></li>
+     </ul>
+    </nav><!--PC导航-->
+  </div>
+  </section>
+  <nav data-am-widget="header" class="am-header am-show-sm-only am-no-layout">
+    <div class="am-header-left am-header-nav">
+      <a href="/" rel="nofollow">
+        <i class="am-header-icon am-icon-home"></i> 首页
+      </a>
+    </div>
+    <h1 class="am-header-title">
+      <a href="/" rel="nofollow">Dim ECU</a>
+    </h1>
+    <div class="am-header-right am-header-nav">
+      <a href="#right-link" class="" data-am-offcanvas="{target: '#r-nav'}">
+        <i class="am-header-icon am-icon-bars"></i> 菜单
+      </a>
+    </div>
+  </nav>
+  <!-- 侧边栏内容 -->
+  <div id="r-nav" class="am-offcanvas">
+    <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+      <nav class="am-offcanvas-content">
+      <!--无线导航--><a href="http://www.imj2.com/" rel="nofollow"><span class="logo"></span></a>
+          <p><i class="am-icon-home"></i> <a href="/" rel="nofollow">网站首页</a></p>
+          <p><i class="am-icon-desktop"></i> <a href="/" rel="nofollow">案例展示</a></p>
+          <p><i class="am-icon-edit"></i> <a href="" rel="nofollow">关于我们</a></p>
+          <p><i class="am-icon-qq"></i> <a href="/" rel="nofollow">联系我们</a></p>
+      <!--无线导航-->
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- <header class="am-topbar am-topbar-fixed-top">
+  <div class="am-container">
+    <h1 class="am-topbar-brand">
+      <a href="#">Dim ECU</a>
+    </h1>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="collapse-head">
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+        <li class="am-active"><a href="#">首页</a></li>
+        <li><a href="#">联系我们</a></li>
+      </ul>
+    </div>
+  </div>
+</header> -->
+
+<div class="get">
+  <div class="am-g">
+    <div class="am-u-lg-12">
+      <h1 class="get-title">Dim-ECU - 最专业的ECU特调</h1>
+      <p>专业升级ECU，最专业的ECU特调</p>
+      <p>
+        <a href="http://amazeui.org" class="am-btn am-btn-success am-btn-lg">立刻预约</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="detail">
+  <div class="am-g am-container">
+    <div class="am-u-lg-12">
+      <h2 class="detail-h2">意大利顶级ECU品牌</h2>
+
+      <div class="am-g">
+        <div class="am-u-lg-6 am-u-md-6 am-u-sm-12 detail-mb">
+          <h3 class="detail-h3">
+            <i class="am-icon-mobile am-icon-sm"></i>
+            品牌介绍
+          </h3>
+          <p class="detail-p">
+            总部位于意大利，有着20多年的ECU改装历史，无数次在国际改装比赛上获奖，一直在ECU改装上处于全球领先地位。
+          </p>
+        </div>
+        <div class="am-u-lg-6 am-u-md-6 am-u-sm-12 detail-mb">
+          <h3 class="detail-h3">
+            <i class="am-icon-cogs am-icon-sm"></i>
+            为什么刷ECU？
+          </h3>
+
+          <p class="detail-p">
+            自然进气车型可增加马力10﹪左右；<br>
+            TURBO车型可增加马力20%-35%，甚至更多；<br>
+            换档时更平顺，动力衔接更棒；<br>
+            可解决许多原厂无法解决的问题,如:怠速过低易熄火,变速箱换档震动的问题。<br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="case">
+  <div class="am-g am-container">
+    <div class="am-u-sm-12">
+      <div class="am-thumbnail">
+        <img src="http://7xs5qt.com1.z0.glb.clouddn.com/1-160214143A1244.jpg" alt=""/>
+          <div class="am-thumbnail-caption">
+            <h3>尼桑350Z跑车</h3>
+            <p>350Z 这个车 话说深圳非常少！但是玩车的朋友始终是激情的 从外地搞了一个过来车牌还是辽！哈哈 开干开干！....</p>
+            <p>
+              <button class="am-btn am-btn-primary">查看详情</button>
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12">
+      <div class="am-thumbnail">
+        <img src="http://7xs5qt.com1.z0.glb.clouddn.com/1-16021522012c62.png" alt=""/>
+          <div class="am-thumbnail-caption">
+            <h3>奔驰C63</h3>
+            <p>本性嚣张-奔驰C63刷ECU后动力狂暴来袭！ 发动机爆发了强大的推力.....</p>
+            <p>
+              <button class="am-btn am-btn-primary">查看详情</button>
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12">
+      <button class="am-btn am-btn-block am-btn-primary">更多案例...</button>
+    </div>
+  </div>
+</div>
+
+<div class="m-top-cbbfixed" style="bottom: 10px;">
+  <a class="m-top-weixin m-top-cbbtn">
+    <span class="m-top-weixin-icon"></span>
+    <div></div>
+  </a>
+  <a class="m-top-go m-top-cbbtn">
+    <span class="m-top-goicon"></span>
+  </a>
+</div>
+
+<footer class="footer">
+  <p>© 2016 <a href="http://www.52ecu.com" target="_blank">DongSong, Inc.</a></p>
+  <p>联系电话：15921425553</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="../js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="./js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="./js/amazeui.min.js"></script>
+</body></html>

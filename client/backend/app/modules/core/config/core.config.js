@@ -32,6 +32,20 @@
 				}
 			})
 
+			formlyConfig.setType({
+				name: 'datePicker',
+				templateUrl: 'elements/datePicker.html',
+				wrapper: ['label'],
+				defaultOptions: {
+templateOptions: {
+						datepickerOptions: {
+							format: 'yyyy-MM-dd',
+							initDate: new Date()
+						}
+					}
+				}
+			})
+
 			// formlyConfig.setType({
 			// 	name: 'datePicker',
 			// 	template: '',

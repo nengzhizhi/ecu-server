@@ -40,7 +40,16 @@
   						required: true,
   						type: 'input'
   					}
-    			}
+    			}, {
+            key: 'date',
+            type: 'datePicker',
+            templateOptions: {
+              label: '时间',
+              required: true,
+              type: 'input'
+            }
+          }
+
     		]
     		return form;
     	}

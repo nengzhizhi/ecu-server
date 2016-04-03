@@ -20,6 +20,7 @@
       'com.module.example',
       'com.module.order',
       'com.module.cases',
-      'com.module.autohome'
+      'com.module.autohome',
+      'com.module.example'
     ])
 })();
