@@ -1,0 +1,9 @@
+{
+	"/": {
+		"template": "index.html",
+		"method": "get"
+	},
+	"/about_us": {
+		"template": "about_us.html"
+	}
+}

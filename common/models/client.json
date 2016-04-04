@@ -2,10 +2,14 @@
   "name": "Client",
   "base": "PersistedModel",
   "properties": {
-    "contact_time": {
+    "date": {
       "type": "string"
     },
     "source": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
       "type": "string",
       "required": true
     },
@@ -16,14 +20,19 @@
       "type": "string",
       "required": true
     },    
-    "contact_type": {
-      "type": "string",
+    "price": {
+      "type": "number",
       "required": true
     },
-    "contact_number": {
-      "type": "string",
-      "required": true
-    },    
+    "mobile": {
+      "type": "string"
+    },
+    "weixin": {
+      "type": "string"
+    }, 
+    "qq": {
+      "type": "string"
+    },
     "remark": {
       "type": "string"
     }

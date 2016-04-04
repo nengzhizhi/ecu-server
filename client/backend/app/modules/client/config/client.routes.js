@@ -56,10 +56,9 @@
 						this.formFields = ClientService.getFormFields();
 						this.formOptions = {};
 						this.submit = function () {
-							console.log(this.client);
-							// ClientService.upsertClient(this.client).then(function () {
-							// 	$state.go($state.current, {}, { reload: true });
-							// })
+							ClientService.upsertClient(this.client).then(function () {
+								$state.go($state.current, {}, { reload: true });
+							})
 						}
 					},
 					resolve: {

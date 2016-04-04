@@ -33,6 +33,13 @@
       this.getFormFields = function(){
     		var form = [
           {
+            key: 'date',
+            type: 'input',
+            templateOptions: {
+              label: '日期',
+              type: 'input'
+            }
+          }, {
             key: 'city',
             type: 'select',
             templateOptions: {
@@ -51,13 +58,35 @@
             templateOptions: {
               label: '车辆型号',
               options: [
+                {name: '宝马X1', value: '宝马X1', brand: '宝马'},
                 {name: '宝马3系', value: '宝马3系', brand: '宝马'},
                 {name: '宝马5系', value: '宝马5系', brand: '宝马'},
                 {name: '高尔夫', value: '高尔夫', brand: '大众'},
-                {name: '朗动', value: '朗动', brand: '现代'}
+                {name: '朗动', value: '朗动', brand: '现代'},
+                {name: '科鲁兹', value: '科鲁兹', brand: '雪佛兰'},
+                {name: '英朗', value: '英朗', brand: '别克'},
+                {name: '霸道', value: '霸道', brand: '丰田'},
+                {name: 'A6', value: 'A6', brand: '奥迪'},
+                {name: 'GLA', value: 'GLA', brand: '奔驰'},
+                {name: '奥德赛', value: '奥德赛', brand: '本田'}
               ],
               required: true,
               groupProp: 'brand'
+            }
+          }, {
+            key: 'status',
+            type: 'select',
+            templateOptions: {
+              label: '当前状态',
+              options: [
+                {name: '请求联系', value: '请求联系'},
+                {name: '询价', value: '询价'},
+                {name: '预约上门', value: '预约上门'},
+                {name: '预约到店', value: '预约到店'},
+                {name: '完成服务', value: '完成服务'},
+                {name: '其他', value: '其他'}
+              ],
+              required: true
             }
           }, {
             key: 'source',
@@ -75,25 +104,32 @@
               required: true
             }
           }, {
-            key: 'contact_type',
-            type: 'select',
-            templateOptions: {
-              label: '联系方式',
-              options: [
-                {name: '微信号', value: '微信号'},
-                {name: 'QQ号', value: 'QQ号'},
-                {name: '手机号', value: '手机号'},
-                {name: '淘宝账号', value: '淘宝账号'}
-              ],              
-              required: true
-            }
-          }, {
-            key: 'contact_number',
+            key: 'price',
             type: 'input',
             templateOptions: {
-              label: '联系号码',
-              type: 'input',
-              required: true
+              label: '价格',
+              type: 'input'
+            }
+          }, {
+            key: 'mobile',
+            type: 'input',
+            templateOptions: {
+              label: '电话号码',
+              type: 'input'
+            }
+          },{
+            key: 'weixin',
+            type: 'input',
+            templateOptions: {
+              label: '微信号',
+              type: 'input'
+            }
+          },{
+            key: 'qq',
+            type: 'input',
+            templateOptions: {
+              label: 'QQ号码',
+              type: 'input'
             }
           }, {
             key: 'remark',
@@ -103,7 +139,6 @@
               type: 'input'
             }
           }
-
     		]
     		return form;
     	}

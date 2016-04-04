@@ -21,22 +21,29 @@
 <table class="table">
 	<thead class="thead">
 		<tr>
-			<th class="table_cell">ID</th>
 			<th class="table_cell">日期</th>
       <th class="table_cell">所在地</th>
       <th class="table_cell">车辆类型</th>
+      <th class="table_cell">当前状态</th>
+      <th class="table_cell">来源</th>
+      <th class="table_cell">价格</th>
+      <th class="table_cell">备注</th>
+      <th class="table_cell">操作</th>
 		</tr>
 	</thead>
 	<tbody class="tbody">
-		<tr ng-repeat="case in ctrl.cases">
-			<td class="table_cell">{{case.id}}</td>
-			<td class="table_cell">{{case.date}}</td>
-			<td class="table_cell">{{case.location}}</td>
-			<td class="table_cell">{{case.car_type}}</td>
+		<tr ng-repeat="client in ctrl.clients">
+			<td class="table_cell">{{client.date}}</td>
+			<td class="table_cell">{{client.city}}</td>
+			<td class="table_cell">{{client.car_type}}</td>
+			<td class="table_cell">{{client.status}}</td>
+			<td class="table_cell">{{client.source}}</td>
+			<td class="table_cell">{{client.price}}</td>
+			<td class="table_cell">{{client.remark}}</td>
 			<td class="table_cell">
-				<a ui-sref="app.cases.edit({id: case.id})">编辑</a>&nbsp;&nbsp;
-				<a ng-click="ctrl.deleteCase({id: case.id})">删除</a>&nbsp;&nbsp;
-				<a ui-sref="app.cases.detail({id: case.id})">详情</a>&nbsp;&nbsp;
+				<a ui-sref="app.client.edit({id: client.id})">编辑</a>&nbsp;&nbsp;
+				<a ng-click="ctrl.deleteClient({id: client.id})">删除</a>&nbsp;&nbsp;
+				<a ui-sref="app.client.detail({id: client.id})">详情</a>&nbsp;&nbsp;
 			</td>
 		</tr>
 	</tbody>
