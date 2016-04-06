@@ -36,6 +36,10 @@
 		"templateUrl": "mobile/mobile.html",
 		"method": "get"
 	},
+	"/m/": {
+		"templateUrl": "mobile/mobile.html",
+		"method": "get"
+	},
 	"/m/about_us": {
 		"templateUrl": "mobile/about_us.html",
 		"method": "get"
