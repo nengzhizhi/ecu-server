@@ -1,9 +1,59 @@
 {
 	"/": {
-		"template": "index.html",
+		"templateUrl": "pc/index.html",
 		"method": "get"
 	},
 	"/about_us": {
-		"template": "about_us.html"
+		"templateUrl": "pc/about_us.html",
+		"method": "get"
+	},
+	"/why_ecu": {
+		"templateUrl": "pc/why_ecu.html",
+		"method": "get"
+	},
+	"/brand": {
+		"templateUrl": "pc/brand.html",
+		"method": "get"
+	},
+	"/map": {
+		"templateUrl": "pc/map.html",
+		"method": "get"
+	},
+	"/cases": {
+		"templateUrl": "pc/cases.html",
+		"method": "get"
+	},
+	"/contact": {
+		"templateUrl": "pc/contact.html",
+		"method": "get"
+	},
+	"/coperation": {
+		"templateUrl": "pc/coperation.html",
+		"method": "get"
+	},
+	"/support": {
+		"templateUrl": "pc/support.html",
+		"method": "get"
+	},
+
+	"/m": {
+		"templateUrl": "mobile/mobile.html",
+		"method": "get"
+	},
+	"/m/about_us": {
+		"templateUrl": "mobile/about_us.html",
+		"method": "get"
+	},
+	"/m/contact": {
+		"templateUrl": "mobile/contact.html",
+		"method": "get"
+	},
+	"/m/coperation": {
+		"templateUrl": "mobile/coperation.html",
+		"method": "get"
+	},		
+	"/m/case_list": {
+		"templateUrl": "mobile/case_list.html",
+		"method": "get"
 	}
 }

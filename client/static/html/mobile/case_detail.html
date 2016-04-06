@@ -1,0 +1,40 @@
+<% include template/header.html %>
+  <div class="header">
+    <div class="am-g am-container">
+      <div class="am-u-lg-12 title"><%-info.description %></div>
+    </div>
+    <div class="am-g am-container">
+      <div class="am-u-sm-6 count">浏览量&nbsp;&nbsp;203</div>
+      <div class="am-u-sm-6 date"><%-info.date %></div>
+    </div>
+  </div>
+
+  <div class="brief">
+    <div class="am-g am-container">
+      <div class="am-u-lg-12">
+        <h3>车辆型号：<%-info.car_type %></h3>
+        <h3>刷写时间：<%-info.date %></h3>
+        <h3>地点：<%-info.location %></h3>
+        <h3>指导价格：<%-info.guide_price %>元</h3>
+      </div>
+    </div>    
+  </div>
+
+  <div class="detail">
+    <div class="am-g am-container">
+      <div class="am-u-lg-12">
+        <p><%-info.description %></p>
+        <div class="description">
+          <% for (var i =0; i< detail.length; i ++){ %>
+            <% if (detail[i].photo){ %>
+              <img class="am-img-responsive" src="<%-detail[i].photo %>">
+            <% } %>
+            <% if (detail[i].explanation){ %>
+              <p><%-detail[i].explanation %></p>  
+            <% } %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% include template/footer.html %>

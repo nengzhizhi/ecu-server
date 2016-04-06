@@ -9,7 +9,8 @@ var app = module.exports = loopback();
 app.use(loopback.static(path.resolve(__dirname, '../client/backend/')));
 //path for bower_components
 app.use(loopback.static(path.resolve(__dirname, '../client/backend/app')));
-app.use(loopback.static(path.resolve(__dirname, '../client/static/resource/')));
+app.use(loopback.static(path.resolve(__dirname, '../client/static/resource/m/')));
+app.use(loopback.static(path.resolve(__dirname, '../client/static/resource/p/')));
 
 // to support JSON-encoded bodies
 app.use(bodyParser.json());

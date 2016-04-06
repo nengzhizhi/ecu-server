@@ -1,0 +1,281 @@
+body {
+}
+
+.am-topbar-nav > li > a:after,
+.am-topbar-nav > li > a:hover:after
+.am-topbar-nav > li.am-active > a:focus:after,
+.am-topbar-nav > li.am-active > a:hover:after {
+  display: none;
+}
+
+.am-topbar .am-text-ir {
+  display: block;
+  margin-right: 10px;
+  height: 50px;
+  width: 125px;
+  background: url(http://7xso22.com1.z0.glb.clouddn.com/logo.png) no-repeat left center;
+  -webkit-background-size: 125px 24px;
+  background-size: 125px 24px;
+}
+
+.am-animation-slide-bottom {
+  background: none;
+  border-color: #ffffff;
+
+}
+
+.am-animation-slide-bottom:hover {
+  background: rgba(0, 0, 0, .5);
+  border-color: #ffffff;
+}
+
+.headercolor {
+  background: none;
+}
+
+.am-topbar-inverse {
+  border-color: transparent;
+}
+
+.am-topbar-right li {
+  padding-left: 20px;
+
+}
+
+.bgimg {
+  background: url("http://7xso22.com1.z0.glb.clouddn.com/bg.png");
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+  margin-top: -55px;
+  text-align: center;
+  padding: 120px 0px 65px 0px;
+}
+
+.bgimg h1 {
+  font-size: 2.3rem;
+
+}
+
+.bgimg h2 {
+  margin-top: 15px;
+  font-size: 40px;
+}
+
+.huanle {
+  position: relative;
+  top: -15px;
+  right: -5px;
+  /*å¾½æ ‡ä½ç½®*/
+}
+
+.bgimg button {
+  margin-top: 20px;
+
+}
+
+#caseimgs {
+
+  max-width: 1100px;
+}
+
+#caseimgs img {
+  padding: 10px;
+}
+
+#caseimgs div {
+  border: 0px;
+}
+
+.am-nav-tabs {
+  border: 0px;
+}
+
+.am-nav-tabs > li > a {
+  color: #3bb4f1;
+}
+
+.am-nav-tabs > li.am-active > a,
+.am-nav-tabs > li.am-active > a:focus,
+.am-nav-tabs > li.am-active > a:hover {
+  border: 0px;
+  background-color: #3bb4f1;
+  color: #FFFFFF;
+}
+
+.am-tabs-bd {
+  margin-left: -16px;
+  margin-top: 1
+
+}
+
+.am-tabs-bd .gallery-inner {
+  position: relative;
+  overflow: hidden;
+}
+
+.onimg {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, .8);
+  text-align: center;
+  -webkit-transform: translateY(-101%);
+  transition-property: all;
+  transition-duration: 0.4s;
+  transition-timing-function: initial;
+  transition-delay: initial;
+}
+
+.gallery-inner:hover .onimg {
+  -webkit-transform: translateY(-0%);
+}
+
+.am-tabs-bd li {
+  padding: 0px 15px 0px 12px;
+}
+
+@media screen and (max-width: 1024px) {
+  .onimg p {
+    display: none;
+  }
+}
+
+.chageheader {
+  background: rgba(0, 0, 0, .7);
+  color: #FFFFFF;
+}
+
+.gallery-inner a {
+  display: block;
+}
+
+.detail {
+  background: #fff;
+}
+
+.detail-h2 {
+  text-align: center;
+  font-size: 150%;
+  margin: 40px 0;
+}
+
+.detail-h3 {
+  color: #1f8dd6;
+}
+
+.detail-p {
+  color: #7f8c8d;
+}
+
+.detail-mb {
+  margin-bottom: 30px;
+}
+
+.cases img{
+	padding-right: 10px;
+}
+.case_desc {
+	font-size: 12px;
+	color: #000!important;
+}
+
+.case_title {
+  width: 100%;
+	font-size: 12px;
+	color: #999;
+	position: absolute;
+	bottom: 0px;
+}
+.case_title .case_car_type{
+  float: left;
+}
+.case_title .case_date{
+  float: right
+}
+
+.amz-footer{
+	margin: 0;
+	text-align: center;
+	padding: 20px 0 10px;
+	background: #555;
+	color: #999;
+}
+
+#amz-toolbar{
+	position: fixed;
+	right: 0px;
+	bottom: 50px;
+	z-index: 999;
+	width: 48px;
+}
+
+#amz-toolbar a{
+	float: right;
+}
+
+.header{
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.header .title{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.header .count{
+	font-size: 10px;
+	color: #999;
+}
+
+.header .date{
+  text-align: right;
+  font-size: 10px;
+  color: #999;
+}
+
+.brief h3{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.detail{
+	min-height: 200px;
+}
+.detail p{
+	font-size: 14px;
+	color: #666;
+}
+
+.detail .description p{
+  font-size: 14px;
+}
+
+.m-top-weixin div {
+  background: url('http://7xso22.com1.z0.glb.clouddn.com/weixin1.png');
+  width: 194px;
+  height: 199px;
+  position: absolute;
+  left: -194px;
+  top: -115px;
+  opacity: 0;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  transform-origin: 100% 70%;
+  -webkit-transform-origin: 100% 70%;
+  transition: transform ease .3s, opacity ease .3s;
+  -webkit-transition: all ease .3s;
+  display: none\0;
+  *display: none;
+}
+.m-top-weixin:hover div {
+  display: block;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  opacity: 1;
+  *display: block;
+}
