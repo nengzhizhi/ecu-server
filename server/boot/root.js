@@ -7,7 +7,7 @@ module.exports = function(server) {
   for (var key in pathConfig) {
     if (pathConfig[key].method == 'get') {
       router.get(key, function (req, res) {
-        res.render(pathConfig[req.url].templateUrl);
+        res.render(pathConfig[req.path].templateUrl);
       })
       server.use(router);
     }
