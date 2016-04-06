@@ -19,10 +19,6 @@
 		"templateUrl": "pc/map.html",
 		"method": "get"
 	},
-	"/cases": {
-		"templateUrl": "pc/cases.html",
-		"method": "get"
-	},
 	"/contact": {
 		"templateUrl": "pc/contact.html",
 		"method": "get"

@@ -13,9 +13,17 @@ module.exports = function(server) {
     }
   }
   
+  router.get('/cases', function (req, res) {
+    var CaseModel = server.models.Case;
+
+    CaseModel.find(function (err, cases) {
+      res.render('pc/cases.html', { items: cases });
+    })
+  })
+
   router.get('/case', function (req, res) {
     if (!req.query.id) {
-      res.render('cases.html');
+      res.render('pc/cases.html');
     } else {
       var CaseModel = server.models.Case;
       var id = req.query.id;
@@ -24,7 +32,7 @@ module.exports = function(server) {
         where: { id: id }
       }, function (err, item) {
         if (!item)
-          return res.render('cases.html');
+          return res.render('pc/cases.html');
 
         var detail = [];
         for (var i = 0; i <= 4; i++) {
@@ -35,7 +43,7 @@ module.exports = function(server) {
           });
         }
 
-        res.render('template/case-detail.html', {
+        res.render('pc/template/case-detail.html', {
           info: item,
           detail: detail
         });
