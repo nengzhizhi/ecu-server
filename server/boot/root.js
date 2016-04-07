@@ -51,6 +51,14 @@ module.exports = function(server) {
     }
   })
 
+  router.get('/m/case_list', function (req, res) {
+    var CaseModel = server.models.Case;
+
+    CaseModel.find(function (err, cases) {
+      res.render('mobile/case_list.html', { items: cases });
+    })    
+  })
+
   router.get('/m/case_detail', function (req, res) {
     if (!req.query.id) {
       res.render('mobile/case_list.html');

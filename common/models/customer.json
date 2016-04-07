@@ -1,0 +1,40 @@
+{
+  "name": "Customer",
+  "base": "PersistedModel",
+  "properties": {
+    "created": {
+      "type": "number"
+    },
+    "quote": {
+    	"type": "number"
+    },
+    "mobile": {
+    	"type": "string"
+    },
+    "qq": {
+    	"type": "string"
+    },
+    "weixin": {
+    	"type": "string"
+    },
+    "stage": {
+    	"type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+  	"car": {
+  		"type": "hasOne",
+  		"model": "CarType",
+  		"foreignKey": "customerId"
+  	},
+  	"contacts": {
+  		"type": "hasMany",
+  		"model": "Contact",
+  		"foreignKey": "customerId"
+  	},
+
+  },
+  "acls": [],
+  "methods": {}  
+}

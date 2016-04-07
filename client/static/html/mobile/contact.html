@@ -1,0 +1,47 @@
+<% include template/header.html %>
+<style type="text/css">
+  .map-wrapper{
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 5px;
+  }
+  #map-box{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin:0;
+    font-family:"微软雅黑";
+  }
+</style>
+<div class="am-g am-container">
+  <div class="am-u-lg-12">
+    <h2>手机：18621285009</h2>
+    <h2>微信：EcuCraft</h2>
+    <h2>QQ：445954717</h2>
+    <h2>地址：上海市闵行区东川路555弄C座201（总部）</h2>
+    <h2>服务地图：</h2>
+    <div class="map-wrapper">
+      <div id="map-box"></div>
+    </div>
+    <img class="am-img-responsive" src="http://7xrv5p.com1.z0.glb.clouddn.com/logo-weixin_d4435e2.jpg">
+  </div>
+</div>
+<script type="text/javascript">
+  //百度地图API功能
+  function loadJScript() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://api.map.baidu.com/api?v=2.0&ak=4PllhpCzAuDOEt3cCePn2vv3&callback=init";
+    document.body.appendChild(script);
+  }
+  function init() {
+    var map = new BMap.Map("map-box");            // 创建Map实例
+    var point = new BMap.Point(121.378, 31.178); // 创建点坐标
+    map.centerAndZoom(point,18);                 
+    map.enableScrollWheelZoom();                 //启用滚轮放大缩小
+  }  
+  window.onload = loadJScript;  //异步加载地图
+</script> 
+
+<% include template/footer.html %>

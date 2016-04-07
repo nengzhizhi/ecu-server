@@ -51,9 +51,5 @@
 	"/m/coperation": {
 		"templateUrl": "mobile/coperation.html",
 		"method": "get"
-	},		
-	"/m/case_list": {
-		"templateUrl": "mobile/case_list.html",
-		"method": "get"
 	}
 }

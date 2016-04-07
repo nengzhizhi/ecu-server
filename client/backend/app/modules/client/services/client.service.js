@@ -62,6 +62,7 @@
                 {name: '宝马3系', value: '宝马3系', brand: '宝马'},
                 {name: '宝马5系', value: '宝马5系', brand: '宝马'},
                 {name: '高尔夫', value: '高尔夫', brand: '大众'},
+                {name: '速腾', value: '速腾', brand: '大众'},
                 {name: '朗动', value: '朗动', brand: '现代'},
                 {name: '科鲁兹', value: '科鲁兹', brand: '雪佛兰'},
                 {name: '英朗', value: '英朗', brand: '别克'},
