@@ -1,0 +1,24 @@
+{
+  "name": "CarModel",
+  "base": "PersistedModel",
+  "properties": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+  	"brand": {
+  		"type": "belongsTo",
+  		"model": "CarBrand",
+  		"foreignKey": "brandId"
+  	},
+    "customer": {
+      "type": "belongsTo",
+      "model": "Customer",
+      "foreignKey": "customerId"
+    }    
+  },
+  "acls": [],
+  "methods": {}  
+}

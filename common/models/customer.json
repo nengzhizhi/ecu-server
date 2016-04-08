@@ -23,17 +23,16 @@
   },
   "validations": [],
   "relations": {
-  	"car": {
+  	"model": {
   		"type": "hasOne",
-  		"model": "CarType",
+  		"model": "CarModel",
   		"foreignKey": "customerId"
   	},
   	"contacts": {
   		"type": "hasMany",
   		"model": "Contact",
   		"foreignKey": "customerId"
-  	},
-
+  	}
   },
   "acls": [],
   "methods": {}  

@@ -53,5 +53,17 @@
   "AutohomeAccount": {
     "dataSource": "mongodb",
     "public": true
-  }
+  },
+  "Customer": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "CarBrand": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "CarModel": {
+    "dataSource": "mongodb",
+    "public": true
+  }    
 }

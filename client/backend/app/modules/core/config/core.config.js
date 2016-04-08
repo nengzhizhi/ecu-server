@@ -12,13 +12,13 @@
 
     	formlyConfig.setType({
 				name: 'input',
-				template: '<input type="text" class="frm_input frm_msg_content" ng-model="model[options.key]">',
+				template: '<span class="frm_input_box"><input type="text" class="frm_input frm_msg_content" ng-model="model[options.key]"></span>',
 				wrapper: ['label']
 			})
 
 			formlyConfig.setType({
 				name: 'select',
-				template: '<select class="frm_input frm_msg_content" ng-model="model[options.key]"></select>',
+				template: '<span class="frm_input_box"><select class="frm_input frm_msg_content" ng-model="model[options.key]"></select></span>',
 				wrapper: ['label'],
 				defaultOptions(options) {
 					var ngOptions = options.templateOptions.ngOptions || `option[to.valueProp || 'value'] as option[to.labelProp || 'name'] group by option[to.groupProp || 'group'] for option in to.options`;					
@@ -33,26 +33,12 @@
 			})
 
 			formlyConfig.setType({
-				name: 'datePicker',
-				templateUrl: 'elements/datePicker.html',
+				name: 'textarea',
+				template: '<span class="frm_textarea_box "><textarea class="frm_textarea" ng-model="model[options.key]"></textarea></span>',
 				wrapper: ['label'],
 				defaultOptions: {
-templateOptions: {
-						datepickerOptions: {
-							format: 'yyyy-MM-dd',
-							initDate: new Date()
-						}
-					}
 				}
 			})
-
-			// formlyConfig.setType({
-			// 	name: 'datePicker',
-			// 	template: '',
-			// 	defaultOptions(options){
-					
-			// 	}
-			// })
 
 			$rootScope.domainUrl = "http://b.meepo.cn";
 		})

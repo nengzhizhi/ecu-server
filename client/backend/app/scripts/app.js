@@ -21,6 +21,8 @@
       'com.module.order',
       'com.module.cases',
       'com.module.autohome',
+      'com.module.customer',
+      'com.module.car',
       'com.module.example'
     ])
 })();
