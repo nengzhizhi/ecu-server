@@ -37,6 +37,7 @@
 						this.formOptions = {};
 
 						this.submit = function () {
+							console.log(Date.parse(new Date(this.client.date)));
 							ClientService.upsertClient(this.client).then(function (client) {
 								$state.go('app.client.edit');
 							})

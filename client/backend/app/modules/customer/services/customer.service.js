@@ -33,67 +33,18 @@
     		var form = [
     			{
   					key: 'source',
-  					type: 'input',
+  					type: 'select',
   					templateOptions: {
               label: '来源',
-  						required: true
+              options: [
+                {name: '微信', value: '微信'},
+                {name: '百度', value: '百度'},
+                {name: '淘宝', value: '淘宝'},
+                {name: '汽车之家', value: '汽车之家'},
+                {name: '其他', value: '其他'}
+              ]
   					}
-    			}, {
-            key: 'car_model',
-            type: 'select',
-            templateOptions: {
-              label: '汽车型号',
-              required: true,
-              groupProp: 'brand'
-            },
-            controller: function ($scope, CarModel) {
-              CarModel.find({
-                filter: { include: 'brand' }
-              }).$promise.then(function (models) {
-                var options = [];
-
-                models.forEach(function (model) {
-                  options.push({
-                    name: model.name,
-                    value: model.name,
-                    brand: model.brand.name
-                  })
-                })
-
-                $scope.options.templateOptions.options = options;
-              })
-            }            
-          }, {
-            key: 'mobile',
-            type: 'input',
-            templateOptions: {
-              label: '电话'
-            }
-          }, {
-            key: 'qq',
-            type: 'input',
-            templateOptions: {
-              label: 'QQ'
-            }
-          }, {
-            key: 'weixin',
-            type: 'input',
-            templateOptions: {
-              label: '微信号'
-            }
-          }, {
-            key: 'quote',
-            type: 'input',
-            templateOptions: {
-              label: '报价'
-            }
-          }, {
-            key: 'status',
-            type: 'input',
-            templateOptions: {
-              label: '当前状态'
-            }
-          }
+    			}
     		]
     		return form;
     	}

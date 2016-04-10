@@ -54,7 +54,7 @@
             templateOptions: {
               label: '支付方式',
               options: [
-                {name: '微信', value: '微信'},
+                {name: '微信', value: '微信', group: ''},
                 {name: '支付宝', value: '支付宝'},
                 {name: '现金', value: '现金'},
                 {name: '其他', value: '其他'}
