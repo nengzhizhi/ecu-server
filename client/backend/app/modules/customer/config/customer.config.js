@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular
-    .module('com.module.example')
+    .module('com.module.customer')
     .run(function ($rootScope) {
     })
 })();
