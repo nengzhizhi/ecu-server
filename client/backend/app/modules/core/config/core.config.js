@@ -45,9 +45,9 @@
 				template: '<span class="frm_input_box"><input pick-a-date="date" pick-a-date-options="{ format: \'yyyy/mm/dd\' }" type="text" class="frm_input frm_msg_content" ng-model="model[options.key]"></span>',
 				wrapper: ['label'],
 				defaultOptions: {
-					// ngModelAttrs: {
-					// 	'pick-a-date': {attribute: 'date'}
-					// }
+					ngModelAttrs: {
+						'pick-a-date': {attribute: 'date'}
+					}
 				}				
 			})
 

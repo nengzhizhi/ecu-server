@@ -21,13 +21,25 @@
 <table class="table">
 	<thead class="thead">
 		<tr>
-			<th class="table_cell">customer</th>
+			<th class="table_cell">来源</th>
+			<th class="table_cell">型号</th>
+      <th class="table_cell">手机号</th>
+      <th class="table_cell">QQ号</th>
+      <th class="table_cell">微信号</th>
+      <th class="table_cell">报价</th>
+      <th class="table_cell">当前状态</th>
       <th class="table_cell">操作</th>
 		</tr>
 	</thead>
 	<tbody class="tbody">
 		<tr ng-repeat="customer in ctrl.customers">
-			<td class="table_cell">{{customer.id}}</td>
+			<td class="table_cell">{{customer.source}}</td>
+			<td class="table_cell">{{customer}}</td>
+			<td class="table_cell">{{customer.mobile}}</td>
+			<td class="table_cell">{{customer.qq}}</td>
+			<td class="table_cell">{{customer.weixin}}</td>
+			<td class="table_cell">{{customer.quote}}</td>
+			<td class="table_cell">{{customer.status}}</td>
 			<td class="table_cell">
 				<a ui-sref="app.customers.edit({id: customer.id})">编辑</a>&nbsp;&nbsp;
 				<a ng-click="ctrl.deleteCustomer({id: customer.id})">删除</a>&nbsp;&nbsp;

@@ -3,12 +3,46 @@
     <p>联系电话：15921425553</p>
   </footer>
 
-  <div class="amz-toolbar" id="amz-toolbar">
+  <style type="text/css">
+    .footer-toolbar{
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      bottom: 0px;
+    }
+    .wx-picture{
+      width: 100%;
+    }
+    .wx-picture img {
+      margin: 10px auto;
+    }
+  </style>
+
+  <div class="footer-toolbar">
+    <div class="am-btn-group am-btn-group-justify">
+      <a href="javascript:void(0)" class="am-btn am-btn-success" data-am-modal="{target: '#wx-prompt'}">微信</a>
+      <a href="tel://15921425553" class="am-btn am-btn-success">电话</a>
+    </div>
+  </div>
+
+  <div class="am-modal am-modal-prompt" tabindex="-1" id="wx-prompt">
+    <div class="am-modal-dialog">
+      <div class="am-modal-hd">微信号：EcuCraft
+        <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        <div class="wx-picture">
+          <img class="am-img-responsive" src="http://7xrv5p.com1.z0.glb.clouddn.com/logo-weixin_d4435e2.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+<!--   <div class="amz-toolbar" id="amz-toolbar">
     <a href="javascript:void(0)" class="am-icon-btn am-icon-weixin m-top-weixin">
     	<div></div>
     </a>
     <a href="tel://15921425553" class="am-icon-btn am-icon-mobile"></a>
-  </div>
+  </div> -->
+
+
 
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>

@@ -57,18 +57,37 @@
 
 </head>
 <body>
-	<header class="am-topbar am-topbar-inverse am-topbar-fixed-top headercolor chageheader" id="header">
+	<header class="am-topbar-inverse am-topbar-fixed-top headercolor chageheader">
     <div class="am-container">
-      <h1 class="am-topbar-brand am-text-ir">
-        <a href="/m">Dim ECU</a>
-      </h1>
+<!--       <a href="/m">
+        <h1 class="am-topbar-brand am-text-ir">Dim ECU</h1>
+      </a> -->
 
-      <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}">
+<!--       <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}">
         <span class="am-sr-only">导航切换</span>
-        <span class="am-icon-bars"></span>
-      </button>
+        <span>菜单</span>
+      </button> -->
 
-      <div class="am-collapse am-topbar-collapse am-topbar-right" id="doc-topbar-collapse">
+        <ul class="am-nav am-nav-pills">
+          <li><a href="/m"><span class="am-icon-home"></span> 首页</a></li>
+          <li class="am-dropdown" data-am-dropdown>
+            <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+              案例查询 <span class="am-icon-caret-down"></span>
+            </a>
+            <ul class="am-dropdown-content">
+              <li><a href="#">宝马案例</a></li>
+              <li><a href="#">大众案例</a></li>
+              <li><a href="#">奥迪案例</a></li>
+              <li><a href="#">丰田案例</a></li>
+              <li><a href="#">奔驰案例</a></li>
+              <li><a href="#">福特案例</a></li>
+              <li><a href="#">其他案例</a></li>
+            </ul>
+          </li>
+          <li><a href="/m/contact">联系我们</a></li>
+        </ul>
+
+<!--       <div class="am-collapse am-topbar-collapse am-topbar-right" id="doc-topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav">
           <li>
             <a href="/m">首页</a>
@@ -86,6 +105,6 @@
             <a href="/m/coperation">合作加盟</a>
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </header>
