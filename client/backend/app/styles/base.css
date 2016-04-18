@@ -6268,3 +6268,7 @@ body {
 .pagination .btn {
 	min-width: 0
 }
+
+.main_hd h2.title_border {
+    border-bottom: 1px solid #e7e7eb;
+}

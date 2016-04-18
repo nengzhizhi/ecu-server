@@ -3,13 +3,6 @@
 var urlBase = "/api";
 var authHeader = 'authorization';
 
-function getHost(url) {
-  var m = url.match(/^(?:https?:)?\/\/([^\/]+)/);
-  return m ? m[1] : null;
-}
-
-var urlBaseHost = getHost(urlBase) || location.host;
-
 /**
  * @ngdoc overview
  * @name lbServices
@@ -4602,6 +4595,58 @@ module.factory(
       { 'id': '@id' },
       {
 
+        // INTERNAL. Use AutohomeAccount.passwords.findById() instead.
+        "prototype$__findById__passwords": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/AutohomeAccounts/:id/passwords/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.destroyById() instead.
+        "prototype$__destroyById__passwords": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/AutohomeAccounts/:id/passwords/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.updateById() instead.
+        "prototype$__updateById__passwords": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/AutohomeAccounts/:id/passwords/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords() instead.
+        "prototype$__get__passwords": {
+          isArray: true,
+          url: urlBase + "/AutohomeAccounts/:id/passwords",
+          method: "GET"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.create() instead.
+        "prototype$__create__passwords": {
+          url: urlBase + "/AutohomeAccounts/:id/passwords",
+          method: "POST"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.destroyAll() instead.
+        "prototype$__delete__passwords": {
+          url: urlBase + "/AutohomeAccounts/:id/passwords",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.count() instead.
+        "prototype$__count__passwords": {
+          url: urlBase + "/AutohomeAccounts/:id/passwords/count",
+          method: "GET"
+        },
+
         /**
          * @ngdoc method
          * @name lbServices.AutohomeAccount#create
@@ -5023,6 +5068,12 @@ module.factory(
           url: urlBase + "/AutohomeAccounts/change-stream",
           method: "POST"
         },
+
+        // INTERNAL. Use AutohomePassword.account() instead.
+        "::get::AutohomePassword::account": {
+          url: urlBase + "/AutohomePasswords/:id/account",
+          method: "GET"
+        },
       }
     );
 
@@ -5165,6 +5216,1000 @@ module.factory(
     */
     R.modelName = "AutohomeAccount";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.AutohomeAccount.passwords
+     * @header lbServices.AutohomeAccount.passwords
+     * @object
+     * @description
+     *
+     * The object `AutohomeAccount.passwords` groups methods
+     * manipulating `AutohomePassword` instances related to `AutohomeAccount`.
+     *
+     * Call {@link lbServices.AutohomeAccount#passwords AutohomeAccount.passwords()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomeAccount#passwords
+         * @methodOf lbServices.AutohomeAccount
+         *
+         * @description
+         *
+         * Queries passwords of AutohomeAccount.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        R.passwords = function() {
+          var TargetResource = $injector.get("AutohomePassword");
+          var action = TargetResource["::get::AutohomeAccount::passwords"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomeAccount.passwords#count
+         * @methodOf lbServices.AutohomeAccount.passwords
+         *
+         * @description
+         *
+         * Counts passwords of AutohomeAccount.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.passwords.count = function() {
+          var TargetResource = $injector.get("AutohomePassword");
+          var action = TargetResource["::count::AutohomeAccount::passwords"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomeAccount.passwords#create
+         * @methodOf lbServices.AutohomeAccount.passwords
+         *
+         * @description
+         *
+         * Creates a new instance in passwords of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        R.passwords.create = function() {
+          var TargetResource = $injector.get("AutohomePassword");
+          var action = TargetResource["::create::AutohomeAccount::passwords"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomeAccount.passwords#createMany
+         * @methodOf lbServices.AutohomeAccount.passwords
+         *
+         * @description
+         *
+         * Creates a new instance in passwords of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        R.passwords.createMany = function() {
+          var TargetResource = $injector.get("AutohomePassword");
+          var action = TargetResource["::createMany::AutohomeAccount::passwords"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomeAccount.passwords#destroyAll
+         * @methodOf lbServices.AutohomeAccount.passwords
+         *
+         * @description
+         *
+         * Deletes all passwords of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.passwords.destroyAll = function() {
+          var TargetResource = $injector.get("AutohomePassword");
+          var action = TargetResource["::delete::AutohomeAccount::passwords"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomeAccount.passwords#destroyById
+         * @methodOf lbServices.AutohomeAccount.passwords
+         *
+         * @description
+         *
+         * Delete a related item by id for passwords.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for passwords
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.passwords.destroyById = function() {
+          var TargetResource = $injector.get("AutohomePassword");
+          var action = TargetResource["::destroyById::AutohomeAccount::passwords"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomeAccount.passwords#findById
+         * @methodOf lbServices.AutohomeAccount.passwords
+         *
+         * @description
+         *
+         * Find a related item by id for passwords.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for passwords
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        R.passwords.findById = function() {
+          var TargetResource = $injector.get("AutohomePassword");
+          var action = TargetResource["::findById::AutohomeAccount::passwords"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomeAccount.passwords#updateById
+         * @methodOf lbServices.AutohomeAccount.passwords
+         *
+         * @description
+         *
+         * Update a related item by id for passwords.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for passwords
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        R.passwords.updateById = function() {
+          var TargetResource = $injector.get("AutohomePassword");
+          var action = TargetResource["::updateById::AutohomeAccount::passwords"];
+          return action.apply(R, arguments);
+        };
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.AutohomePassword
+ * @header lbServices.AutohomePassword
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `AutohomePassword` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "AutohomePassword",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/AutohomePasswords/:id",
+      { 'id': '@id' },
+      {
+
+        // INTERNAL. Use AutohomePassword.account() instead.
+        "prototype$__get__account": {
+          url: urlBase + "/AutohomePasswords/:id/account",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#create
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/AutohomePasswords",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#createMany
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/AutohomePasswords",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#upsert
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/AutohomePasswords",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#exists
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/AutohomePasswords/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#findById
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/AutohomePasswords/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#find
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/AutohomePasswords",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#findOne
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/AutohomePasswords/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#updateAll
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/AutohomePasswords/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#deleteById
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/AutohomePasswords/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#count
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/AutohomePasswords/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#prototype$updateAttributes
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/AutohomePasswords/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#createChangeStream
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/AutohomePasswords/change-stream",
+          method: "POST"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.findById() instead.
+        "::findById::AutohomeAccount::passwords": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/AutohomeAccounts/:id/passwords/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.destroyById() instead.
+        "::destroyById::AutohomeAccount::passwords": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/AutohomeAccounts/:id/passwords/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.updateById() instead.
+        "::updateById::AutohomeAccount::passwords": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/AutohomeAccounts/:id/passwords/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords() instead.
+        "::get::AutohomeAccount::passwords": {
+          isArray: true,
+          url: urlBase + "/AutohomeAccounts/:id/passwords",
+          method: "GET"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.create() instead.
+        "::create::AutohomeAccount::passwords": {
+          url: urlBase + "/AutohomeAccounts/:id/passwords",
+          method: "POST"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.createMany() instead.
+        "::createMany::AutohomeAccount::passwords": {
+          isArray: true,
+          url: urlBase + "/AutohomeAccounts/:id/passwords",
+          method: "POST"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.destroyAll() instead.
+        "::delete::AutohomeAccount::passwords": {
+          url: urlBase + "/AutohomeAccounts/:id/passwords",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use AutohomeAccount.passwords.count() instead.
+        "::count::AutohomeAccount::passwords": {
+          url: urlBase + "/AutohomeAccounts/:id/passwords/count",
+          method: "GET"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#updateOrCreate
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#update
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#destroyById
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#removeById
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomePassword` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name lbServices.AutohomePassword#modelName
+    * @propertyOf lbServices.AutohomePassword
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `AutohomePassword`.
+    */
+    R.modelName = "AutohomePassword";
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.AutohomePassword#account
+         * @methodOf lbServices.AutohomePassword
+         *
+         * @description
+         *
+         * Fetches belongsTo relation account.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `AutohomeAccount` object.)
+         * </em>
+         */
+        R.account = function() {
+          var TargetResource = $injector.get("AutohomeAccount");
+          var action = TargetResource["::get::AutohomePassword::account"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);
@@ -6485,9 +7530,9 @@ module.factory(
           method: "POST"
         },
 
-        // INTERNAL. Use CarModel.models() instead.
-        "::get::CarModel::models": {
-          url: urlBase + "/CarModels/:id/models",
+        // INTERNAL. Use CarModel.brand() instead.
+        "::get::CarModel::brand": {
+          url: urlBase + "/CarModels/:id/brand",
           method: "GET"
         },
       }
@@ -6962,9 +8007,9 @@ module.factory(
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use CarModel.models() instead.
-        "prototype$__get__models": {
-          url: urlBase + "/CarModels/:id/models",
+        // INTERNAL. Use CarModel.brand() instead.
+        "prototype$__get__brand": {
+          url: urlBase + "/CarModels/:id/brand",
           method: "GET"
         },
 
@@ -7630,12 +8675,12 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name lbServices.CarModel#models
+         * @name lbServices.CarModel#brand
          * @methodOf lbServices.CarModel
          *
          * @description
          *
-         * Fetches belongsTo relation models.
+         * Fetches belongsTo relation brand.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -7658,9 +8703,9 @@ module.factory(
          * This usually means the response is a `CarBrand` object.)
          * </em>
          */
-        R.models = function() {
+        R.brand = function() {
           var TargetResource = $injector.get("CarBrand");
-          var action = TargetResource["::get::CarModel::models"];
+          var action = TargetResource["::get::CarModel::brand"];
           return action.apply(R, arguments);
         };
 
@@ -7706,7 +8751,7 @@ module.factory(
 
 module
   .factory('LoopBackAuth', function() {
-    var props = ['accessTokenId', 'currentUserId', 'rememberMe'];
+    var props = ['accessTokenId', 'currentUserId'];
     var propsPrefix = '$LoopBack$';
 
     function LoopBackAuth() {
@@ -7714,6 +8759,7 @@ module
       props.forEach(function(name) {
         self[name] = load(name);
       });
+      this.rememberMe = undefined;
       this.currentUserData = null;
     }
 
@@ -7767,9 +8813,8 @@ module
       return {
         'request': function(config) {
 
-          // filter out external requests
-          var host = getHost(config.url);
-          if (host && host !== urlBaseHost) {
+          // filter out non urlBase requests
+          if (config.url.substr(0, urlBase.length) !== urlBase) {
             return config;
           }
 
@@ -7837,7 +8882,6 @@ module
      */
     this.setUrlBase = function(url) {
       urlBase = url;
-      urlBaseHost = getHost(urlBase) || location.host;
     };
 
     /**

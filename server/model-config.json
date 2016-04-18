@@ -54,6 +54,10 @@
     "dataSource": "mongodb",
     "public": true
   },
+  "AutohomePassword": {
+    "dataSource": "mongodb",
+    "public": true
+  },
   "Customer": {
     "dataSource": "mongodb",
     "public": true

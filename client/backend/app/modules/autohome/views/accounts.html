@@ -24,7 +24,7 @@
 			<th class="table_cell">用户名</th>
       <th class="table_cell">来自</th>
       <th class="table_cell">车型</th>
-      <th class="table_cell">状态</th>
+      <th class="table_cell">密码</th>
       <th class="table_cell">操作</th>
 		</tr>
 	</thead>
@@ -33,9 +33,9 @@
 			<td class="table_cell">{{account.uname}}</td>
 			<td class="table_cell">{{account.from}}</td>
 			<td class="table_cell">{{account.car_type}}</td>
-			<td class="table_cell">{{account.status}}</td>
+			<td class="table_cell">{{account.password}}</td>
 			<td class="table_cell">
-				<a ui-sref="app.autohome.edit({id: account.id})">编辑</a>&nbsp;&nbsp;
+				<a ui-sref="app.autohome.account({id: account.id})">详情</a>&nbsp;&nbsp;
 			</td>
 		</tr>
 	</tbody>

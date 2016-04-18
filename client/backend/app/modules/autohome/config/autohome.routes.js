@@ -35,5 +35,45 @@
 						}
 					}
 				})
+				.state('app.autohome.account', {
+					url: '/account/:id',
+					templateUrl: 'modules/autohome/views/account_form.html',
+					controllerAs: 'ctrl',
+					controller: function ($scope, $stateParams, $state, AutohomeService, account) {
+						this.account = account;
+						$scope.password = null;
+
+						this.possiblePassword = function(){
+							AutohomeService.addPassword({
+								accountId: $stateParams.id,
+								value: $scope.password
+							}, function() {
+								$state.go($state.current, {}, {reload: true});
+							});
+						}
+
+						this.removePassword = function(id){
+							AutohomeService.removePassword({
+								id: id
+							}, function() {
+								$state.go($state.current, {}, {reload: true});
+							});							
+						}
+
+						this.correctPassword = function(password){
+							AutohomeService.upsertAccount({
+								id: $stateParams.id,
+								password: password
+							}, function() {
+								$state.go($state.current, {}, {reload: true});
+							});								
+						}
+					},
+					resolve: {
+						account: function ($stateParams, AutohomeService) {
+							return AutohomeService.getAccount($stateParams.id);
+						}
+					}
+				})
 		})
 })();

@@ -1,0 +1,37 @@
+<div class="main_hd main_hd_bd">
+	<h2 class="title_border">
+		账号管理
+	</h2>
+</div>
+
+
+<div class="frm_control_group" style="margin-top:20px;">
+	<label for="" class="frm_label">可能密码:</label>
+	<div class="frm_controls">
+		<span class="frm_input_box vcode">
+			<input class="frm_input" type="text" ng-model="password">
+		</span>
+		<a class="btn btn_primary" href="javascript:;" ng-click="ctrl.possiblePassword()">添加</a>
+	</div>
+</div>
+
+
+<table class="table">
+	<thead class="thead">
+		<tr>
+			<th class="table_cell">密码</th>
+			<th class="table_cell">状态</th>
+      <th class="table_cell">操作</th>
+		</tr>
+	</thead>
+	<tbody class="tbody">
+		<tr ng-repeat="password in ctrl.account.passwords">
+			<td class="table_cell">{{password.value}}</td>
+			<td class="table_cell">{{password.status}}</td>
+			<td class="table_cell">
+				<a href="javascript:" ng-click="ctrl.correctPassword(password.value)">验证成功</a>&nbsp;&nbsp;
+				<a href="javascript:" ng-click="ctrl.removePassword(password.id)">验证失败</a>&nbsp;&nbsp;
+			</td>
+		</tr>
+	</tbody>
+</table>
