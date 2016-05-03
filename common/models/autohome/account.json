@@ -3,8 +3,7 @@
   "base": "PersistedModel",
   "properties": {
     "uname": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "uid": {
       "type": "string"

@@ -5,10 +5,10 @@
 				<a class="del_btn jsSearchInputClose" href="javascript:" style="display:none">
 					<i class="icon_search_del"></i>&nbsp;
 				</a>
-				<a href="javascript:" class="frm_input_append jsSearchInputBt">
+				<a ui-sref="app.autohome.accounts({province: ctrl.province})" class="frm_input_append jsSearchInputBt">
 					<i class="icon16_common search_gray">搜索</i>&nbsp;
 				</a>
-				<input type="text" value="" class="frm_input jsSearchInput" placeholder="xx">
+				<input type="text" value="" ng-model="ctrl.province" class="frm_input jsSearchInput" placeholder="查询省份">
 			</span>
 		</div>
 	</div>
@@ -24,7 +24,7 @@
 			<th class="table_cell">用户名</th>
       <th class="table_cell">来自</th>
       <th class="table_cell">车型</th>
-      <th class="table_cell">密码</th>
+      <th class="table_cell">状态</th>
       <th class="table_cell">操作</th>
 		</tr>
 	</thead>
@@ -33,9 +33,10 @@
 			<td class="table_cell">{{account.uname}}</td>
 			<td class="table_cell">{{account.from}}</td>
 			<td class="table_cell">{{account.car_type}}</td>
-			<td class="table_cell">{{account.password}}</td>
+			<td class="table_cell">{{account.status}}</td>
 			<td class="table_cell">
-				<a ui-sref="app.autohome.account({id: account.id})">详情</a>&nbsp;&nbsp;
+				<a ng-click="ctrl.updateAccount(account, '已查询')">已查询</a>&nbsp;&nbsp;
+				<a target="_blank" ui-sref="app.autohome.account({id: account.id})">详情</a>&nbsp;&nbsp;
 			</td>
 		</tr>
 	</tbody>

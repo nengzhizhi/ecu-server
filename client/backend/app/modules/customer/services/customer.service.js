@@ -51,6 +51,12 @@
               ]
   					}
     			}, {
+            key: 'keywords',
+            type: 'input',
+            templateOptions: {
+              label: '关键词'
+            }
+          }, {
              key: 'car_model',
              type: 'select',
              templateOptions: {
@@ -109,7 +115,13 @@
                 {name: '其他', value: '其他'}
               ]
             }
-          }, 
+          }, {
+            key: 'remark',
+            type: 'input',
+            templateOptions: {
+              label: ''
+            }
+          } 
     		]
     		return form;
     	}

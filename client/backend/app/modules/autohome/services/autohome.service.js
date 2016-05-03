@@ -3,11 +3,15 @@
   angular
     .module('com.module.autohome')
     .service('AutohomeService', function ($state, AutohomeAccount, AutohomePassword, CoreService) {
-      this.getAccounts = function (offset, limit) {
+      this.getAccounts = function (offset, limit, province) {
         return AutohomeAccount.find({
           filter: {
             offset: offset,
-            limit: limit
+            limit: limit,
+            order: 'from DESC',
+            where: {
+              from: { like: province ? province: '' }
+            }
           }
         }).$promise;
       }
@@ -15,7 +19,9 @@
       this.getAccount = function (id) {
         return AutohomeAccount.findOne({
           filter: {
-            where: { id: id },
+            where: { 
+              id: id
+            },
             include: 'passwords'
           }
         }).$promise;
@@ -45,8 +51,12 @@
         })
       }
 
-      this.countAccounts = function () {
-        return AutohomeAccount.count().$promise;
+      this.countAccounts = function (province) {
+        return AutohomeAccount.count({
+          where: {
+            from: { like: province ? province: '' }
+          }
+        }).$promise;
       }
 
       this.getFormFields = function(){

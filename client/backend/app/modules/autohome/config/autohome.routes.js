@@ -10,28 +10,37 @@
 					templateUrl: 'modules/autohome/views/main.html'
 				})
 				.state('app.autohome.accounts', {
-					url: '/accounts',
+					url: '/accounts/:province',
 					templateUrl: 'modules/autohome/views/accounts.html',
 					controllerAs: 'ctrl',
 					controller: function (AutohomeService, paginator) {
 						this.paginator = paginator;
+
+						this.updateAccount = function(account, status){
+							account.status = status;
+
+							AutohomeService.upsertAccount(account).then(function () {
+								$state.go($state.current, {}, { reload: true });
+							})
+						}
+
 					},
 					resolve: {
-						paginator: function (AutohomeService, Pagination) {
+						paginator: function (AutohomeService, Pagination, $stateParams) {
 							var fetchFunction = function(offset, pageSize, callback){
-								AutohomeService.getAccounts(offset, pageSize)
+								AutohomeService.getAccounts(offset, pageSize, $stateParams.province)
 									.then(function (items) {
 										callback(items);
 									});								
 							}
 
 							var countFunction = function(callback){
-								return AutohomeService.countAccounts().then(function (count) {
+								return AutohomeService.countAccounts($stateParams.province).then(function (count) {
 									callback(count.count);
 								});
 							}
 
-							return Pagination(fetchFunction, countFunction, 20);
+							return Pagination(fetchFunction, countFunction, 50);
 						}
 					}
 				})
@@ -42,6 +51,15 @@
 					controller: function ($scope, $stateParams, $state, AutohomeService, account) {
 						this.account = account;
 						$scope.password = null;
+
+						var self = this;
+						this.updateStatus = function(status){
+							self.account.status = status;
+
+							AutohomeService.upsertAccount(self.account).then(function () {
+								$state.go($state.current, {}, { reload: true });
+							})
+						}
 
 						this.possiblePassword = function(){
 							AutohomeService.addPassword({
@@ -63,7 +81,8 @@
 						this.correctPassword = function(password){
 							AutohomeService.upsertAccount({
 								id: $stateParams.id,
-								password: password
+								password: $scope.password,
+								status: '已获得密码'
 							}, function() {
 								$state.go($state.current, {}, {reload: true});
 							});								

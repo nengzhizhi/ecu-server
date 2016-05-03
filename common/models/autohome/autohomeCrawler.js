@@ -146,7 +146,9 @@ AutohomeCrawler.crawlPostPage = function (url, callback) {
 					profile.from = leftlists.eq(5).children().eq(0).text();
 				}
 
-				if (leftlists && leftlists.eq(6)) {
+				if (leftlists && leftlists.eq(7)) {
+					profile.carType = leftlists.eq(7).children().eq(-1).text();
+				} else if (leftlists && leftlists.eq(6)) {
 					profile.carType = leftlists.eq(6).children().eq(-1).text();
 				}
 

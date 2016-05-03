@@ -1,22 +1,30 @@
 <div class="main_hd main_hd_bd">
 	<h2 class="title_border">
-		账号管理
+		账号管理：{{ctrl.account.uname}}
 	</h2>
 </div>
 
+<!-- <div class="highlight_box icon_wrap icon_small border" id="div_start" style="">
+  <div class="opr">
+			<a href="javascript:;" class="btn btn_primary" ng-click="ctrl.updateStatus('已获得密码')">已验证密码</a>
+
+  </div>
+  <h4 class="title">状态：{{ctrl.account.status}}</h4>
+</div> -->
+
 
 <div class="frm_control_group" style="margin-top:20px;">
-	<label for="" class="frm_label">可能密码:</label>
+	<label for="" class="frm_label">密码:</label>
 	<div class="frm_controls">
 		<span class="frm_input_box vcode">
 			<input class="frm_input" type="text" ng-model="password">
 		</span>
-		<a class="btn btn_primary" href="javascript:;" ng-click="ctrl.possiblePassword()">添加</a>
+		<a class="btn btn_primary" href="javascript:;" ng-click="ctrl.correctPassword()">添加</a>
 	</div>
 </div>
 
 
-<table class="table">
+<!-- <table class="table">
 	<thead class="thead">
 		<tr>
 			<th class="table_cell">密码</th>
@@ -34,4 +42,4 @@
 			</td>
 		</tr>
 	</tbody>
-</table>
+</table> -->
